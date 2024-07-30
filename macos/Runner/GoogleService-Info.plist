@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCsCdfMtombp8OiiyMPNMvAlmDr5KOFn1I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1010019383791</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.onclick.washingcars.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>cleaning-service-66ce3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cleaning-service-66ce3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1010019383791:ios:beed14e2a6b1024c2dde1a</string>
+</dict>
+</plist>
