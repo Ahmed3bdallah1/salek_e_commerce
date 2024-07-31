@@ -2,6 +2,7 @@
 
 import 'package:car_rentting/Features/auth/presentation/manager/current_user_provider.dart';
 import 'package:car_rentting/Features/categories/domain/use_cases/category_services_use_cases.dart';
+import 'package:car_rentting/Features/chat/presentation/chat_screen.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/home_servises_item_widget.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/shimmer_home_category.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/silder_home_widget.dart';
@@ -59,10 +60,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }
 
-                  return WhatsappFloatingIcon(
-                    onPressed: () {
-                      launchInWhats("${phone.valueEn}");
-                    },
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      WhatsappFloatingIcon(
+                        onPressed: () {
+                          // launchInWhats("${phone.valueEn}");
+                        },
+                      ),
+                      WhatsappFloatingIcon(
+                        onPressed: () {
+                          Get.to(() => ChatPage());
+                        },
+                      ),
+                    ],
                   );
                 }
               });
@@ -81,11 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 15.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
-                child: HomeSliderWidget(),
-              ),
               SizedBox(height: 15.h),
               Consumer(builder: (context, ref, child) {
                 final fetchData = ref.watch(fetchCategoriesProvider);
@@ -110,11 +116,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
                             ),
-                            ListView.separated(
+                            GridView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               itemCount: categories.length,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      childAspectRatio: 1.1,
+                                      mainAxisExtent: 180.h),
                               itemBuilder: (c, i) {
                                 return Padding(
                                   padding:
@@ -128,18 +139,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 );
                               },
-                              separatorBuilder:
-                                  (BuildContext context, int index) {
-                                return SizedBox(
-                                  width: 17,
-                                );
-                              },
+                              // separatorBuilder:
+                              //     (BuildContext context, int index) {
+                              //   return SizedBox(
+                              //     width: 17,
+                              //   );
+                              // },
                             ),
                           ],
                         );
                       }
                     });
               }),
+              SizedBox(height: 15.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
+                child: HomeSliderWidget(),
+              ),
             ],
           ),
         ),

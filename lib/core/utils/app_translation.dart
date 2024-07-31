@@ -10,6 +10,7 @@ class Translation extends Translations {
           'Preparing': "يتم التحضير",
           'Order Received': "تم استقبال الطلب",
           'Waiting': "فى الانتظار",
+          "Some service's sponsors": "اعلان بعض الخدمات",
           "You must login to access this page":
               "يجب عليك تسجيل الدخول للوصول الي هذه الصفحة",
           'cancelpayment': "هل انت متأكد من رغبتك في الغاء عملية الدفع",

@@ -1,6 +1,7 @@
 import 'package:car_rentting/Features/home/presentation/views/widgets/home_servises_item_widget.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class HomeCategoryShimmer extends StatelessWidget {
@@ -20,20 +21,17 @@ class HomeCategoryShimmer extends StatelessWidget {
             style: AppFontStyle.black_18.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        ListView.separated(
+        GridView.builder(
           shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 1.2),
           physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
-          itemCount: 5,
+          itemCount: 4,
           itemBuilder: (c, i) {
             return const Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: HomeServicesItemShimmer(),
-            );
-          },
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(
-              width: 17,
             );
           },
         ),

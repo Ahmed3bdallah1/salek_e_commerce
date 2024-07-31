@@ -8,6 +8,7 @@ class AppColors {
   static const Color primaryColorSALEK2 = Color.fromRGBO(67, 123, 69, 1);
   static const Color secondaryColor = Color(0xFF365486); // Blue
   static const Color lightColor = Color(0xFF7FC7D9); // Light blue
+  static const Color lightColor2 = Color(0xff13828E); // Light blue
   static const Color deepOrange = primaryColorSALEK2; // Light blue
   static const Color black = Color(0xFF000000);
   static const Color grayC4 = Color(0xFFC4C4C4);
