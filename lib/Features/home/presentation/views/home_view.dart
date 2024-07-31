@@ -60,20 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }
 
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      WhatsappFloatingIcon(
-                        onPressed: () {
-                          // launchInWhats("${phone.valueEn}");
-                        },
-                      ),
-                      WhatsappFloatingIcon(
-                        onPressed: () {
-                          Get.to(() => ChatPage());
-                        },
-                      ),
-                    ],
+                  return WhatsappFloatingIcon(
+                    onPressed: () {
+                      launchInWhats("${phone.valueEn}");
+                    },
                   );
                 }
               });

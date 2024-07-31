@@ -10,14 +10,17 @@ import 'package:car_rentting/core/utils/local_data_manager.dart';
 import 'package:car_rentting/main.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginView extends ConsumerWidget {
   const LoginView({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const inputBorder = BorderRadius.vertical(
@@ -52,7 +55,8 @@ class LoginView extends ConsumerWidget {
           onLogin: (loginData) async {
             final das = await UserLoginUseCase(getIt<AuthRepo>()).call(
                 LoginRequestModel(
-                    fcmToken: (await FirebaseMessaging.instance.getToken()).toString(),
+                    fcmToken: (await FirebaseMessaging.instance.getToken())
+                        .toString(),
                     email: loginData.name,
                     password: loginData.password));
             return das.fold((l) {
@@ -68,6 +72,8 @@ class LoginView extends ConsumerWidget {
               fcmToken: await FirebaseMessaging.instance.getToken(),
               name: loginData.additionalSignupData!['userName']!,
               phone: loginData.additionalSignupData!['phone']!,
+              company: loginData.additionalSignupData!['company']!,
+              address: loginData.additionalSignupData!['address']!,
               email: loginData.name!,
               password: loginData.password!,
             ));
@@ -126,6 +132,32 @@ class LoginView extends ConsumerWidget {
               fieldValidator: (value) {
                 if (value?.trimLeft().trimRight().isEmpty == true) {
                   return 'Phone is required'.tr;
+                }
+                return null;
+              },
+            ),
+            UserFormField(
+              keyName: 'company',
+              displayName: "Company".tr,
+              userType: LoginUserType.text,
+              icon: const Icon(Icons.location_city),
+              fieldValidator: (value) {
+                if (value?.trimLeft().trimRight().isEmpty == true) {
+                  return 'Company name is required'.tr;
+                }
+                return null;
+              },
+            ),
+            UserFormField(
+              keyName: 'address',
+              displayName: "Address".tr,
+              userType: LoginUserType.text,
+              icon: Icon(Icons.location_on),
+              fieldValidator: (value) {
+                if (value?.trimLeft().trimRight().isEmpty == true) {
+                  return 'Address is required'.tr;
+                } else if (value!.length < 10) {
+                  return 'Address is must be 10 characters or more'.tr;
                 }
                 return null;
               },
