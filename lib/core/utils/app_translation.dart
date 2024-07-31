@@ -13,9 +13,16 @@ class Translation extends Translations {
           "Some service's sponsors": "اعلان بعض الخدمات",
           "You must login to access this page":
               "يجب عليك تسجيل الدخول للوصول الي هذه الصفحة",
+          "Follow us in social platform": "تابعنا على مواقع التواصل الاجتماعى",
           'cancelpayment': "هل انت متأكد من رغبتك في الغاء عملية الدفع",
           'yescancel': "الغاء",
           'Submit': "تنفيذ",
+          "Company": "الشركة",
+          'Company name is required': "اسم الشركة مطلوب",
+          "Address": "العنوان",
+          'Address is required': "العنوان مطلوب",
+          'Address is must be 10 characters or more':
+              "العنوان يجب ان يكون اكتر من 10 حروف",
           'continuepay': "استكمال الدفع",
           "Categories": "الفئات",
           'Name is required': "الاسم مطلوب",
