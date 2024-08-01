@@ -4,6 +4,7 @@ class Translation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'ar': {
+          "Salik":"سالك",
           "Notifications": "الاشعارات",
           'Delivered': "تم التوصيل",
           'Delete Account': "حذف الحساب",

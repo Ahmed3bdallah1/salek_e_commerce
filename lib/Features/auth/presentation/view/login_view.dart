@@ -18,6 +18,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../gen/assets.gen.dart';
+
 class LoginView extends ConsumerWidget {
   const LoginView({super.key});
 
@@ -51,7 +53,7 @@ class LoginView extends ConsumerWidget {
             additionalSignUpFormDescription: "Complete Your Profile".tr,
             additionalSignUpSubmitButton: "Register".tr,
           ),
-          logo: 'assets/base/logo3.png',
+          logo: Assets.base.logo3.path,
           onLogin: (loginData) async {
             final das = await UserLoginUseCase(getIt<AuthRepo>()).call(
                 LoginRequestModel(
@@ -164,7 +166,7 @@ class LoginView extends ConsumerWidget {
             ),
           ],
 
-          title: "سالك",
+          title: "Salik".tr,
 
           // logo: 'assets/images/logo.png',
         ),

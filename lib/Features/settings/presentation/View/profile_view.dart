@@ -7,6 +7,7 @@ import 'package:car_rentting/Features/settings/presentation/View/widgets/social_
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
 import 'package:car_rentting/core/utils/const.dart';
+import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -83,18 +84,16 @@ class SettingsView extends ConsumerWidget {
                     children: [
                       SocialMediaContent(
                           ontap: () {},
-                          image: "assets/social_media/facebook.png"),
+                          image: Assets.socialMedia.facebook.path),
                       SocialMediaContent(
-                          ontap: () {}, image: "assets/social_media/gmail.png"),
-                      SocialMediaContent(
-                          ontap: () {},
-                          image: "assets/social_media/instagram.png"),
+                          ontap: () {}, image: Assets.socialMedia.gmail.path),
                       SocialMediaContent(
                           ontap: () {},
-                          image: "assets/social_media/twitter.png"),
+                          image: Assets.socialMedia.instagram.path),
                       SocialMediaContent(
-                          ontap: () {},
-                          image: "assets/social_media/youtube.png"),
+                          ontap: () {}, image: Assets.socialMedia.twitter.path),
+                      SocialMediaContent(
+                          ontap: () {}, image: Assets.socialMedia.youtube.path),
                     ],
                   )
                 ],

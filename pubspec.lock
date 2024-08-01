@@ -502,22 +502,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.14"
-  flutter_gen:
-    dependency: "direct dev"
-    description:
-      name: flutter_gen
-      sha256: c310ae52c59010e71bcde62d9f3d81221e25b9c16f7f3adf9496dde8480866da
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.6.0"
   flutter_gen_core:
     dependency: transitive
     description:
       name: flutter_gen_core
-      sha256: d8e828ad015a8511624491b78ad8e3f86edb7993528b1613aefbb4ad95947795
+      sha256: b9894396b2a790cc2d6eb3ed86e5e113aaed993765b21d4b981c9da4476e0f52
       url: "https://pub.dev"
     source: hosted
-    version: "5.6.0"
+    version: "5.5.0+1"
+  flutter_gen_runner:
+    dependency: "direct dev"
+    description:
+      name: flutter_gen_runner
+      sha256: b4c4c54e4dd89022f5e405fe96f16781be2dfbeabe8a70ccdf73b7af1302c655
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.5.0+1"
   flutter_google_maps_webservices:
     dependency: transitive
     description:
