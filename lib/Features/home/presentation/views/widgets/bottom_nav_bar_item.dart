@@ -31,7 +31,7 @@ class BottomNavigationItem extends ConsumerWidget {
             icon,
             size: 24.r,
             color: isSelected
-                ? AppColors.primaryColorSALEK1
+                ? AppColors.lightColor2
                 : Colors.black.withOpacity(.8),
           ),
           SizedBox(
@@ -41,7 +41,7 @@ class BottomNavigationItem extends ConsumerWidget {
               maxLines: 1,
               style: AppFontStyle.black_14.copyWith(
                 color: isSelected
-                    ? AppColors.primaryColorSALEK1
+                    ? AppColors.lightColor2
                     : Colors.black.withOpacity(.8),
               )),
         ],
