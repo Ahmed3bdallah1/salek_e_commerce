@@ -38,7 +38,7 @@ class SettingsItem extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: color ?? AppColors.primaryColorSALEK1,
+                color: color ?? AppColors.lightColor2,
               ),
               const SizedBox(width: 20),
               Text(title),
