@@ -53,7 +53,7 @@ class EmptyWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(msg, style: TextStyle(fontSize: 20.sp, color: Colors.black)),
+          Text(msg.tr, style: TextStyle(fontSize: 20.sp, color: Colors.black)),
           if (onRetry != null)
             TextButton(
                 onPressed: onRetry!,

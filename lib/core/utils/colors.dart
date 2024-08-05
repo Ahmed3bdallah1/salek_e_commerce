@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primaryColor = Color(0xFF0F1035); // Dark blue
-  static const Color primaryColorSALEK1 = Color(0xff3DB54A); // Dark blue
-  static const Color primaryColorSALEK2 = Color.fromRGBO(67, 123, 69, 1);
+  static const Color primaryColor = Color.fromRGBO(123	,124,	127	,1); // Dark blue
+  static const Color primaryColorSALEK1 = Color.fromRGBO(123	,124,	127	,1); // Dark blue
+  static const Color primaryColorSALEK2 = Color.fromRGBO(0	,0,	0,1	);
   static const Color secondaryColor = Color(0xFF365486); // Blue
   static const Color lightColor = Color(0xFF7FC7D9); // Light blue
   static const Color lightColor2 = Color(0xff13828E); // Light blue

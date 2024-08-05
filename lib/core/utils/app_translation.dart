@@ -11,6 +11,7 @@ class Translation extends Translations {
           'Preparing': "يتم التحضير",
           'Order Received': "تم استقبال الطلب",
           'Waiting': "فى الانتظار",
+          'No data found':"لا توجد بيانات",
           "You must login to access this page":
               "يجب عليك تسجيل الدخول للوصول الي هذه الصفحة",
           "Follow us in social platform": "تابعنا على مواقع التواصل الاجتماعى",

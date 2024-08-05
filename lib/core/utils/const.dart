@@ -5,11 +5,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const kCarBox = 'car_box';
 // final ZoomDrawerController zoomDrawerController = ZoomDrawerController();
-const String baseUrl = "https://soitmed.onclick-eg.com/api/";
+const String baseUrl = "https://unidye.onclick-eg.com/api/";
 const LatLng initialLatLong = LatLng(30.57499500, 31.50368170);
 const googleMapsApiKey = "AIzaSyCX3JeW9bpasQrhBXDubyI68AmV-uEhS0o";
 
-const String uploadPath = "https://soitmed.onclick-eg.com/images/";
+const String uploadPath = "https://unidye.onclick-eg.com/images/";
 const String GET_CATEGORY_WITH_SERVICE = "getCategory/with/services";
 const String GET_CATEGORIES = "getCategory";
 const String GET_SERVICES = "getService";

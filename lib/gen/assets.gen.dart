@@ -94,11 +94,10 @@ class Assets {
 
   static const $AssetsBaseGen base = $AssetsBaseGen();
   static const $AssetsSocialMediaGen socialMedia = $AssetsSocialMediaGen();
-  static const String a152 = 'assets/عقارك-15 (2).svg';
   static const String a15 = 'assets/عقارك-15.svg';
 
   /// List of all assets
-  static List<String> get values => [a152, a15];
+  static List<String> get values => [a15];
 }
 
 class AssetGenImage {

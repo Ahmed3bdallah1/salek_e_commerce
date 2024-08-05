@@ -23,6 +23,7 @@ import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/api_service.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
 import 'package:car_rentting/core/utils/app_translation.dart';
+import 'package:car_rentting/core/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -122,8 +123,8 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             theme: FlexThemeData.light(
               appBarStyle: FlexAppBarStyle.background,
-              scheme: FlexScheme.green,
-              fontFamily: GoogleFonts.tajawal().fontFamily,
+              scheme: FlexScheme.greyLaw,
+               fontFamily: GoogleFonts.tajawal().fontFamily,
             ),
             themeMode: ThemeMode.light,
             title: 'سالك',
