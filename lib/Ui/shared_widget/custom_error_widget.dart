@@ -1,5 +1,6 @@
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/api_service.dart';
+import 'package:get/get.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({super.key, this.onRetry, required this.err});
