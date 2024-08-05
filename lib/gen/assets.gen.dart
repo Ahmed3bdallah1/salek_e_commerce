@@ -21,6 +21,9 @@ class $AssetsBaseGen {
   /// File path: assets/base/gift.svg
   String get gift => 'assets/base/gift.svg';
 
+  /// File path: assets/base/lgo.png
+  AssetGenImage get lgo => const AssetGenImage('assets/base/lgo.png');
+
   /// File path: assets/base/loading.gif
   AssetGenImage get loading => const AssetGenImage('assets/base/loading.gif');
 
@@ -47,6 +50,7 @@ class $AssetsBaseGen {
         eyeCrossed,
         eye,
         gift,
+        lgo,
         loading,
         logo,
         logo2,
@@ -90,10 +94,11 @@ class Assets {
 
   static const $AssetsBaseGen base = $AssetsBaseGen();
   static const $AssetsSocialMediaGen socialMedia = $AssetsSocialMediaGen();
+  static const String a152 = 'assets/عقارك-15 (2).svg';
   static const String a15 = 'assets/عقارك-15.svg';
 
   /// List of all assets
-  static List<String> get values => [a15];
+  static List<String> get values => [a152, a15];
 }
 
 class AssetGenImage {
