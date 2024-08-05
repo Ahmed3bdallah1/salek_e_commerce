@@ -11,6 +11,7 @@ import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class SettingsView extends ConsumerWidget {

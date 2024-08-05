@@ -64,14 +64,14 @@ class HomeSliderWidget extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Some service's sponsors".tr,
-                  style: AppFontStyle.black_18
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Text(
+              //     "Some service's sponsors".tr,
+              //     style: AppFontStyle.black_18
+              //         .copyWith(fontWeight: FontWeight.bold),
+              //   ),
+              // ),
               CarouselSlider(
                 options: CarouselOptions(
                   autoPlay: true,

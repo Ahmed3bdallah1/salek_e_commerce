@@ -24,6 +24,7 @@ class SliderItem extends StatelessWidget {
             break;
           case AdType.category:
             Get.to(() => AllCategories(
+            null,
                   id: int.parse(item.navTo),
                 ));
             break;

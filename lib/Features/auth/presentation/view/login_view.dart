@@ -6,12 +6,15 @@ import 'package:car_rentting/Features/auth/domain/use_cases/user_register_use_ca
 import 'package:car_rentting/Features/auth/presentation/manager/current_user_provider.dart';
 import 'package:car_rentting/Features/home/presentation/views/root_view.dart';
 import 'package:car_rentting/core/utils/colors.dart';
+import 'package:car_rentting/core/utils/local_data_manager.dart';
 import 'package:car_rentting/main.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 

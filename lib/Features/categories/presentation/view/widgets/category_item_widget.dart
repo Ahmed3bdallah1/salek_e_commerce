@@ -21,6 +21,7 @@ class CategoryItem extends StatelessWidget {
       onTap: () {
         if (isPrimary) {
           Get.to(() => AllCategories(
+            '${serviceEntity.catNameAr}',
                 id: serviceEntity.catId,
               ));
         } else {

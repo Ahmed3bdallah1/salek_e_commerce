@@ -13,9 +13,9 @@ class ServicesRepoImpl extends ServicesRepo {
 
   @override
   Future<Either<Failure, List<ServiceEntity>>> getServices(
-      int categoryId) async {
+      int categoryId,[int type = 0]) async {
     try {
-      final res = await dataSource.getServices(categoryId);
+      final res = await dataSource.getServices(categoryId,type);
       return right(res);
     } catch (e) {
       if (e is DioException) {

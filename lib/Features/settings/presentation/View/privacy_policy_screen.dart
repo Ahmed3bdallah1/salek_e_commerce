@@ -25,16 +25,14 @@ class PrivacyPolicyScreen extends StatelessWidget {
             refreshable: fetchPolicyProvider.future,
             ref: ref,
             data: (termsData) {
-              print(termsData.termsAr ?? "");
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                child: Column(
-                  children: [
-                    HtmlWidget(
-                      termsData.termsAr ?? "",
-                    ),
-                  ],
+
+              return SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  child: HtmlWidget(
+                    termsData.termsAr ?? "",
+                  ),
                 ),
               );
             },

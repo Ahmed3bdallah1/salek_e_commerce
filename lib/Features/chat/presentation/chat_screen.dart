@@ -6,7 +6,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:uuid/uuid.dart';
 import '../../auth/presentation/manager/current_user_provider.dart';
 class ChatPage extends ConsumerStatefulWidget {
   const ChatPage({super.key});
@@ -56,7 +55,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     final textMessage = types.TextMessage(
       author: _user,
       createdAt: DateTime.now().millisecondsSinceEpoch,
-      id: const Uuid().v4(),
+      id: 'const Uuid().v4()',
       text: message.text,
     );
 

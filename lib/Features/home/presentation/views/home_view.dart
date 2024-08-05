@@ -2,6 +2,7 @@
 
 import 'package:car_rentting/Features/auth/presentation/manager/current_user_provider.dart';
 import 'package:car_rentting/Features/categories/domain/use_cases/category_services_use_cases.dart';
+import 'package:car_rentting/Features/chat/presentation/chat_screen.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/home_servises_item_widget.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/shimmer_home_category.dart';
 import 'package:car_rentting/Features/home/presentation/views/widgets/silder_home_widget.dart';
@@ -9,10 +10,13 @@ import 'package:car_rentting/Features/setting/presentation/widgets/whatsapp_floa
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/functions/riverpod.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:car_rentting/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../auth/presentation/manager/get_user_provider.dart';
 import '../../../setting/presentation/managers/fetch_settings_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -97,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "How Can We Help You".tr + "?".tr,
+                                "Categories".tr,
                                 style: AppFontStyle.black_18
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),

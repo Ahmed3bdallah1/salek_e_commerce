@@ -20,7 +20,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => AllCategories(id: category.catId));
+        Get.to(() => AllCategories(category.catNameAr,id: category.catId));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.r),

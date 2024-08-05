@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 import '../../../services/domain/entities/service_entity.dart';
 
 abstract class ServicesRepo {
-  Future<Either<Failure, List<ServiceEntity>>> getServices(int categoryId);
+  Future<Either<Failure, List<ServiceEntity>>> getServices(int categoryId,[int type = 0]);
 }

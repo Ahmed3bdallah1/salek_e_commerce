@@ -32,7 +32,9 @@ class HomeServicesItem extends StatelessWidget {
           BoxDecoration(borderRadius: BorderRadius.circular(5), color: color),
       child: InkWell(
         onTap: () {
-          Get.to(() => AllCategories(id: category.catId));
+          Get.to(() => AllCategories(
+category.catNameAr,
+            id: category.catId));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

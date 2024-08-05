@@ -11,16 +11,21 @@ import 'package:get/get.dart';
 
 import '../../domain/use_cases/category_services_use_cases.dart';
 
-class AllCategories extends StatefulWidget {
-  const AllCategories({super.key, this.id});
+final selectedTypeCategoryProvider = StateProvider.autoDispose<int>((ref) {
+  return 0;
+});
+
+class AllCategories extends ConsumerStatefulWidget {
+  const AllCategories(this.name,{super.key, this.id});
+  final String? name;
 
   final int? id;
 
   @override
-  State<AllCategories> createState() => _AllCategoriesState();
+  ConsumerState<AllCategories> createState() => _AllCategoriesState();
 }
 
-class _AllCategoriesState extends State<AllCategories>
+class _AllCategoriesState extends ConsumerState<AllCategories>
     with TickerProviderStateMixin {
   late final TabController controller;
 
@@ -32,137 +37,130 @@ class _AllCategoriesState extends State<AllCategories>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, ref, child) {
-      final provider = widget.id == null
+       final provider = widget.id == null
           ? fetchCategoriesProvider
           : fetchServicesProvider(widget.id!);
-
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Categories".tr),
-        ),
-        body: ref.watch(provider).customWhen(
-              ref: ref,
-              refreshable: provider.future,
-              data: (data) {
-                if (data.isEmpty) {
-                  return EmptyWidget(
-                    onRetry: () {
-                      return ref.refresh(provider.future);
-                    },
-                  );
-                }
-                final isPrimary = widget.id == null;
-                return Column(
-                  children: [
-                    Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: TabBar(
-                        indicatorSize: TabBarIndicatorSize.label,
-                        // indicator: BoxDecoration(
-                        //   color: AppColors.primaryColorSALEK1,
-                        //   borderRadius: BorderRadius.circular(12),
-                        // ),
-                        controller: controller,
-                        dividerColor: AppColors.primaryColorSALEK1,
-                        isScrollable: false,
-                        tabs: [
-                          Tab(
-                            child: SizedBox(
-                              child: Center(
-                                child: Text(
-                                  'Products'.tr,
-                                  style: AppFontStyle.black_18,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Tab(
-                            child: SizedBox(
-                              child: Center(
-                                child: Text(
-                                  'Services'.tr,
-                                  style: AppFontStyle.black_18,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        controller: controller,
-                        children: [
-                          GridView.builder(
-                            itemCount: data.length,
-                            padding: EdgeInsets.all(11.w),
-                            gridDelegate: isPrimary
-                                ? SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        context.mediaQuerySize.shortestSide <
-                                                300
-                                            ? 1
-                                            : max(context.width ~/ 385 + 1, 2),
-                                    crossAxisSpacing: 11,
-                                    mainAxisSpacing: 11,
-                                    childAspectRatio:
-                                        isPrimary ? 1.1843971631 : 1,
-                                  )
-                                : SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 1,
-                                    crossAxisSpacing: 11,
-                                    mainAxisSpacing: 11,
-                                    childAspectRatio:
-                                        isPrimary ? 1.1843971631 : 2,
-                                  ),
-                            itemBuilder: (BuildContext context, int index) {
-                              return CategoryItem(
-                                data[index],
-                                isPrimary: isPrimary,
-                              );
-                            },
-                          ),
-                          GridView.builder(
-                            itemCount: data.length,
-                            padding: EdgeInsets.all(11.w),
-                            gridDelegate: isPrimary
-                                ? SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        context.mediaQuerySize.shortestSide <
-                                                300
-                                            ? 1
-                                            : max(context.width ~/ 385 + 1, 2),
-                                    crossAxisSpacing: 11,
-                                    mainAxisSpacing: 11,
-                                    childAspectRatio:
-                                        isPrimary ? 1.1843971631 : 1,
-                                  )
-                                : SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 1,
-                                    crossAxisSpacing: 11,
-                                    mainAxisSpacing: 11,
-                                    childAspectRatio:
-                                        isPrimary ? 1.1843971631 : 2,
-                                  ),
-                            itemBuilder: (BuildContext context, int index) {
-                              return CategoryItem(
-                                data[index],
-                                isPrimary: isPrimary,
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                );
-              },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.name == null ? "Categories".tr : widget.name!),
+        bottom: TabBar(
+          indicatorSize: TabBarIndicatorSize.label,
+          // indicator: BoxDecoration(
+          //   color: AppColors.primaryColorSALEK1,
+          //   borderRadius: BorderRadius.circular(12),
+          // ),
+          controller: controller,
+          dividerColor: AppColors.primaryColorSALEK1,
+          isScrollable: false,
+          onTap: (index) {
+            ref.read(selectedTypeCategoryProvider.notifier).state = index;
+          },
+          tabs: [
+            Tab(
+              child: SizedBox(
+                child: Center(
+                  child: Text(
+                    'Products'.tr,
+                    style: AppFontStyle.black_18,
+                  ),
+                ),
+              ),
             ),
-      );
-    });
+            Tab(
+              child: SizedBox(
+                child: Center(
+                  child: Text(
+                    'Services'.tr,
+                    style: AppFontStyle.black_18,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+      body: Consumer(builder: (context, ref, child) {
+        return ref.watch(provider).customWhen(
+            ref: ref,
+            refreshable: provider.future,
+            data: (data) {
+              if (data.isEmpty) {
+                return EmptyWidget(
+                  onRetry: () {
+                    return ref.refresh(provider.future);
+                  },
+                );
+              }
+              final isPrimary = widget.id == null;
+              return Column(
+                children: [
+                  Expanded(
+                    child: TabBarView(
+                      controller: controller,
+                      children: [
+                        GridView.builder(
+                          itemCount: data.length,
+                          padding: EdgeInsets.all(11.w),
+                          gridDelegate: isPrimary
+                              ? SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount:
+                                      context.mediaQuerySize.shortestSide < 300
+                                          ? 1
+                                          : max(context.width ~/ 385 + 1, 2),
+                                  crossAxisSpacing: 11,
+                                  mainAxisSpacing: 11,
+                                  childAspectRatio:
+                                      isPrimary ? 1.1843971631 : 1,
+                                )
+                              : SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 1,
+                                  crossAxisSpacing: 11,
+                                  mainAxisSpacing: 11,
+                                  childAspectRatio:
+                                      isPrimary ? 1.1843971631 : 2,
+                                ),
+                          itemBuilder: (BuildContext context, int index) {
+                            return CategoryItem(
+                              data[index],
+                              isPrimary: isPrimary,
+                            );
+                          },
+                        ),
+                        GridView.builder(
+                          itemCount: data.length,
+                          padding: EdgeInsets.all(11.w),
+                          gridDelegate: isPrimary
+                              ? SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount:
+                                      context.mediaQuerySize.shortestSide < 300
+                                          ? 1
+                                          : max(context.width ~/ 385 + 1, 2),
+                                  crossAxisSpacing: 11,
+                                  mainAxisSpacing: 11,
+                                  childAspectRatio:
+                                      isPrimary ? 1.1843971631 : 1,
+                                )
+                              : SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 1,
+                                  crossAxisSpacing: 11,
+                                  mainAxisSpacing: 11,
+                                  childAspectRatio:
+                                      isPrimary ? 1.1843971631 : 2,
+                                ),
+                          itemBuilder: (BuildContext context, int index) {
+                            return CategoryItem(
+                              data[index],
+                              isPrimary: isPrimary,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+      },));
   }
 }

@@ -5,7 +5,7 @@ import 'package:car_rentting/core/utils/const.dart';
 import '../../../services/domain/entities/service_entity.dart';
 
 abstract class ServicesDataSource {
-  Future<List<ServiceEntity>> getServices(int categoryId);
+  Future<List<ServiceEntity>> getServices(int categoryId,[int type = 0]);
 }
 
 class ServicesDataSourceImpl extends ServicesDataSource {
@@ -14,8 +14,10 @@ class ServicesDataSourceImpl extends ServicesDataSource {
   ServicesDataSourceImpl(this.apiService);
 
   @override
-  Future<List<ServiceEntity>> getServices(int categoryId) async {
-    final cat = await apiService.get<List>(url: '$GET_SERVICES/$categoryId');
+  Future<List<ServiceEntity>> getServices(int categoryId,[int type = 0]) async {
+    final cat = await apiService.get<List>(url: '$GET_SERVICES/$categoryId',queryParameters: {
+      'type' : type
+    });
     return cat.map((e) => CategoryModel.fromJson(e)).toList();
   }
 }
