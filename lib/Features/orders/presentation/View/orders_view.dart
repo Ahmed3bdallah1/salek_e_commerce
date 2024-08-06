@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:car_rentting/Features/chat/presentation/chat_screen.dart';
+import 'package:car_rentting/Features/chat/presentation/managers/get_chat_provider.dart';
 import 'package:car_rentting/Features/orders/presentation/View/widgets/order_item_widget.dart';
 import 'package:car_rentting/Features/orders/presentation/manager/get_orders_provider.dart';
 import 'package:car_rentting/Features/services/presentation/views/servics_view.dart';
@@ -43,10 +45,12 @@ class OrdersView extends ConsumerWidget {
                   itemCount: orders.length,
                   itemBuilder: (ctx, i) => InkWell(
                       onTap: () async {
-                        Get.to(() => ServiceScreen(
-                              orders[i].id,
-                              isFromOrder: true,
-                            ));
+                        orders[i].status == 1 || orders[i].status == 2
+                            ? Get.to(() => ChatPage(orders[i].id))
+                            : Get.to(() => ServiceScreen(
+                                  orders[i].id,
+                                  isFromOrder: true,
+                                ));
                       },
                       child: OrderItem(orders[i])),
                 );

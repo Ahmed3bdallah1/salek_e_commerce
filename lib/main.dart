@@ -1,6 +1,10 @@
 import 'package:car_rentting/Features/auth/data/data_sources/auth_date_source.dart';
 import 'package:car_rentting/Features/auth/domain/use_cases/fetch_user_data_use_case.dart';
 import 'package:car_rentting/Features/auth/domain/use_cases/update_password_use_case.dart';
+import 'package:car_rentting/Features/chat/data/data_source/chats_data_source.dart';
+import 'package:car_rentting/Features/chat/data/repo/chats_repo_imp.dart';
+import 'package:car_rentting/Features/chat/domain/repo/chats_repo.dart';
+import 'package:car_rentting/Features/chat/domain/use_case/chats_use_cases.dart';
 import 'package:car_rentting/Features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:car_rentting/Features/home/data/data_sources/services_remote_data_source.dart';
 import 'package:car_rentting/Features/home/data/repos/home_repo_impl.dart';
@@ -87,6 +91,15 @@ Future setupLocator() async {
   getIt.registerLazySingleton<FetchPolicyUseCase>(
       () => FetchPolicyUseCase(policyRepo: getIt<PrivacyPolicyRepo>()));
 
+  getIt.registerLazySingleton<ChatsDataSource>(
+      () => ChatsDataSourceImpl(getIt<ApiService>()));
+  getIt.registerLazySingleton<ChatsRepo>(
+      () => ChatsRepoImpl(dataSource: getIt<ChatsDataSource>()));
+  getIt.registerLazySingleton<FetchChatsUseCase>(
+      () => FetchChatsUseCase(chatsRepo: getIt<ChatsRepo>()));
+  getIt.registerLazySingleton<FetchSendMessageUseCase>(
+      () => FetchSendMessageUseCase(chatsRepo: getIt<ChatsRepo>()));
+
   getIt.registerLazySingleton<ServiceDataSource>(
       () => ServiceDataSourceImpl(apiService: getIt<ApiService>()));
   getIt.registerLazySingleton<ServiceRepo>(
@@ -124,7 +137,7 @@ class MyApp extends StatelessWidget {
             theme: FlexThemeData.light(
               appBarStyle: FlexAppBarStyle.background,
               scheme: FlexScheme.greyLaw,
-               fontFamily: GoogleFonts.tajawal().fontFamily,
+              fontFamily: GoogleFonts.tajawal().fontFamily,
             ),
             themeMode: ThemeMode.light,
             title: 'سالك',

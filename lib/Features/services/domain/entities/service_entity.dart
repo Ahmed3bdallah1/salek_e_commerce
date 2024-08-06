@@ -17,6 +17,7 @@ class ServiceEntity {
   final List<ServiceEntity> subCategories;
   final List<String> serviceMultiImages;
   final String? serviceDiscount;
+
   ServiceEntity({
     required this.serviceTotal,
     required this.catColor,
@@ -33,4 +34,46 @@ class ServiceEntity {
     required this.catId,
     required this.subCategories,
   });
+
+  factory ServiceEntity.fromJson(Map<String, dynamic> json) {
+     return ServiceEntity(
+      serviceField: (json['serviceField'] as List<dynamic>?)
+          ?.map((item) => Field.fromJson(item))
+          .toList(),
+      servicePrice: json['servicePrice'],
+      serviceTotal: json['serviceTotal'],
+      catNameAr: json['catNameAr'],
+      catColor: Color(int.parse(json['catColor'], radix: 16)),
+      catTextColor: Color(int.parse(json['catTextColor'], radix: 16)),
+      catId: json['catId'],
+      catNameEn: json['catNameEn'],
+      catDescriptionAr: json['catDescriptionAr'],
+      catDescriptionEn: json['catDescriptionEn'],
+      catImage: json['catImage'],
+      subCategories: (json['subCategories'] as List<dynamic>)
+          .map((item) => ServiceEntity.fromJson(item))
+          .toList(),
+      serviceMultiImages: List<String>.from(json['serviceMultiImages']),
+      serviceDiscount: json['serviceDiscount'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'serviceField': serviceField?.map((item) => item.toJson()).toList(),
+      'servicePrice': servicePrice,
+      'serviceTotal': serviceTotal,
+      'catNameAr': catNameAr,
+      'catColor': catColor.value.toRadixString(16),
+      'catTextColor': catTextColor.value.toRadixString(16),
+      'catId': catId,
+      'catNameEn': catNameEn,
+      'catDescriptionAr': catDescriptionAr,
+      'catDescriptionEn': catDescriptionEn,
+      'catImage': catImage,
+      'subCategories': subCategories.map((item) => item.toJson()).toList(),
+      'serviceMultiImages': serviceMultiImages,
+      'serviceDiscount': serviceDiscount,
+    };
+  }
 }

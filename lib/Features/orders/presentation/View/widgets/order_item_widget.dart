@@ -41,11 +41,11 @@ class OrderItem extends StatelessWidget {
                   style: AppFontStyle.black_18
                       .copyWith(fontWeight: FontWeight.bold)),
               subtitle: Text(
-                order.service.catNameAr,
+                order.service?.catNameAr??'',
               ),
             ),
             CustomStepperWidget(
-              status: 0,
+              status: order.status ?? 0,
             ),
           ],
         ),
