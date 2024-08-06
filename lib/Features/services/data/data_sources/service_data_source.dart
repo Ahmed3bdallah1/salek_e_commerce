@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:car_rentting/Features/categories/data/models/category_model.dart';
 
 import '../../../../core/utils/api_service.dart';
@@ -34,10 +36,10 @@ class ServiceDataSourceImpl extends ServiceDataSource {
   Future<String?> submitOrder(int id, Map<String, dynamic> data) async {
     final res = await apiService.post(url: "storeOrderForm", requestBody: {
       "service_id": id,
-      "form": data.entries
+      "form": jsonEncode(data.entries
           .map((e) => {"field_id": e.key.toString(), "value": e.value})
           .where((element) => element['value'] != null)
-          .toList()
+          .toList())
     });
     return res;
   }

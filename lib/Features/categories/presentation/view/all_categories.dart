@@ -32,7 +32,9 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 2, vsync: this);
+    controller = TabController(length: 2, vsync: this)..addListener(() {
+        ref.read(selectedTypeCategoryProvider.notifier).state = controller.index;
+    });
   }
 
   @override
@@ -45,16 +47,9 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
         title: Text(widget.name == null ? "Categories".tr : widget.name!),
         bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.label,
-          // indicator: BoxDecoration(
-          //   color: AppColors.primaryColorSALEK1,
-          //   borderRadius: BorderRadius.circular(12),
-          // ),
           controller: controller,
           dividerColor: AppColors.primaryColorSALEK1,
           isScrollable: false,
-          onTap: (index) {
-            ref.read(selectedTypeCategoryProvider.notifier).state = index;
-          },
           tabs: [
             Tab(
               child: SizedBox(
@@ -92,70 +87,64 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
                 );
               }
               final isPrimary = widget.id == null;
-              return Column(
+              return TabBarView(
+                controller: controller,
                 children: [
-                  Expanded(
-                    child: TabBarView(
-                      controller: controller,
-                      children: [
-                        GridView.builder(
-                          itemCount: data.length,
-                          padding: EdgeInsets.all(11.w),
-                          gridDelegate: isPrimary
-                              ? SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount:
-                                      context.mediaQuerySize.shortestSide < 300
-                                          ? 1
-                                          : max(context.width ~/ 385 + 1, 2),
-                                  crossAxisSpacing: 11,
-                                  mainAxisSpacing: 11,
-                                  childAspectRatio:
-                                      isPrimary ? 1.1843971631 : 1,
-                                )
-                              : SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 1,
-                                  crossAxisSpacing: 11,
-                                  mainAxisSpacing: 11,
-                                  childAspectRatio:
-                                      isPrimary ? 1.1843971631 : 2,
-                                ),
-                          itemBuilder: (BuildContext context, int index) {
-                            return CategoryItem(
-                              data[index],
-                              isPrimary: isPrimary,
-                            );
-                          },
-                        ),
-                        GridView.builder(
-                          itemCount: data.length,
-                          padding: EdgeInsets.all(11.w),
-                          gridDelegate: isPrimary
-                              ? SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount:
-                                      context.mediaQuerySize.shortestSide < 300
-                                          ? 1
-                                          : max(context.width ~/ 385 + 1, 2),
-                                  crossAxisSpacing: 11,
-                                  mainAxisSpacing: 11,
-                                  childAspectRatio:
-                                      isPrimary ? 1.1843971631 : 1,
-                                )
-                              : SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 1,
-                                  crossAxisSpacing: 11,
-                                  mainAxisSpacing: 11,
-                                  childAspectRatio:
-                                      isPrimary ? 1.1843971631 : 2,
-                                ),
-                          itemBuilder: (BuildContext context, int index) {
-                            return CategoryItem(
-                              data[index],
-                              isPrimary: isPrimary,
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                  GridView.builder(
+                    itemCount: data.length,
+                    padding: EdgeInsets.all(11.w),
+                    gridDelegate: isPrimary
+                        ? SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount:
+                                context.mediaQuerySize.shortestSide < 300
+                                    ? 1
+                                    : max(context.width ~/ 385 + 1, 2),
+                            crossAxisSpacing: 11,
+                            mainAxisSpacing: 11,
+                            childAspectRatio:
+                                isPrimary ? 1.1843971631 : 1,
+                          )
+                        : SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            crossAxisSpacing: 11,
+                            mainAxisSpacing: 11,
+                            childAspectRatio:
+                                isPrimary ? 1.1843971631 : 2,
+                          ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return CategoryItem(
+                        data[index],
+                        isPrimary: isPrimary,
+                      );
+                    },
+                  ),
+                  GridView.builder(
+                    itemCount: data.length,
+                    padding: EdgeInsets.all(11.w),
+                    gridDelegate: isPrimary
+                        ? SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount:
+                                context.mediaQuerySize.shortestSide < 300
+                                    ? 1
+                                    : max(context.width ~/ 385 + 1, 2),
+                            crossAxisSpacing: 11,
+                            mainAxisSpacing: 11,
+                            childAspectRatio:
+                                isPrimary ? 1.1843971631 : 1,
+                          )
+                        : SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            crossAxisSpacing: 11,
+                            mainAxisSpacing: 11,
+                            childAspectRatio:
+                                isPrimary ? 1.1843971631 : 2,
+                          ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return CategoryItem(
+                        data[index],
+                        isPrimary: isPrimary,
+                      );
+                    },
                   ),
                 ],
               );
