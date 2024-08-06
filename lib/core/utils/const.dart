@@ -21,6 +21,8 @@ const String REGISTER = "register";
 const String LOGIN = "login";
 const String GET_SERVICE = "fields";
 const String LOG_OUT = "logout";
+const String GET_CHATS = "getConversation/";
+const String SEND_MESSAGE = "send";
 const String CHANGE_PASSWORD = "change/password";
 const String DELETE_ACCOUNT = "delete/account";
 

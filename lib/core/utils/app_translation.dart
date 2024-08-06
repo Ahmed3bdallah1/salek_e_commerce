@@ -5,6 +5,7 @@ class Translation extends Translations {
   Map<String, Map<String, String>> get keys => {
         'ar': {
           "Salik":"سالك",
+          "Chat with engineer":"التحدث مع المهندس",
           "Notifications": "الاشعارات",
           'Delivered': "تم التوصيل",
           'Delete Account': "حذف الحساب",
