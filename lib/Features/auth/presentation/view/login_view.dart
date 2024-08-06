@@ -112,7 +112,7 @@ class LoginView extends ConsumerWidget {
               fontWeight: FontWeight.bold,
             ),
             primaryColor: AppColors.lightColor2,
-            pageColorLight: AppColors.primaryColorSALEK2,
+            pageColorLight: AppColors.primaryColorSALEK1,
           ),
           additionalSignupFields: [
             UserFormField(

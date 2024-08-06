@@ -10,6 +10,7 @@ import 'package:car_rentting/Features/setting/presentation/widgets/whatsapp_floa
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/functions/riverpod.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,11 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
               });
         },
       ),
-      appBar: AppBar(
-        title: Consumer(builder: (context, ref, child) {
-          final userName = ref.watch(currentUserProvider)?.name;
-          return Text("${"Welcome".tr} ${userName ?? ''} 👋");
-        }),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight*1.5),
+
+        child: AppBar(
+
+          title: Image.asset(Assets.base.lgo.path,
+
+        height: kToolbarHeight*1.5,
+          ),
+
+
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -82,7 +90,6 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 15.h),
               Consumer(builder: (context, ref, child) {
                 final fetchData = ref.watch(fetchCategoriesProvider);
                 return fetchData.customWhen(
@@ -99,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
                               child: Text(
                                 "Categories".tr,
                                 style: AppFontStyle.black_18
