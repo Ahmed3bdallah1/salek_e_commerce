@@ -53,7 +53,8 @@ class LoginView extends ConsumerWidget {
             additionalSignUpFormDescription: "Complete Your Profile".tr,
             additionalSignUpSubmitButton: "Register".tr,
           ),
-          logo: Assets.base.logo3.path,
+          logo: Assets.base.lgo.path,
+
           onLogin: (loginData) async {
             final das = await UserLoginUseCase(getIt<AuthRepo>()).call(
                 LoginRequestModel(
@@ -165,9 +166,6 @@ class LoginView extends ConsumerWidget {
               },
             ),
           ],
-
-          title: "Salik".tr,
-
           // logo: 'assets/images/logo.png',
         ),
 
