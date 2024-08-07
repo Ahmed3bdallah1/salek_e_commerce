@@ -4,7 +4,7 @@ import 'package:car_rentting/core/utils/api_service.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class OrderRepo {
-  Future<Either<Failure, List<OrderEntity>>> getOrders();
+  Future<Either<Failure, List<OrderEntity>>> getOrders(int type);
 
   Future<Either<Failure, ServiceEntity>> getOrder(int orderId);
 }

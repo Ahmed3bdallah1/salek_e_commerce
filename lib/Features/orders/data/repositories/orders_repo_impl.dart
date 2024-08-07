@@ -13,9 +13,9 @@ class OrderRepoImpl extends OrderRepo {
   OrderRepoImpl({required this.orderDataSource});
 
   @override
-  Future<Either<Failure, List<OrderEntity>>> getOrders() async {
+  Future<Either<Failure, List<OrderEntity>>> getOrders(int type) async {
     try {
-      final res = await orderDataSource.getOrders();
+      final res = await orderDataSource.getOrders(type);
       return right(res);
     } catch (e) {
       if (e is DioException) {

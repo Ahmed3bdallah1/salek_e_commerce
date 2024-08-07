@@ -6,7 +6,7 @@ import '../../domain/entities/order_entity.dart';
 import '../models/order_model.dart';
 
 abstract class OrdersDataSource {
-  Future<List<OrderEntity>> getOrders();
+  Future<List<OrderEntity>> getOrders(int type);
 
   Future<ServiceEntity> getOrder(int id);
 }
@@ -17,8 +17,10 @@ class OrdersDataSourceImpl implements OrdersDataSource {
   OrdersDataSourceImpl(this.apiService);
 
   @override
-  Future<List<OrderEntity>> getOrders() async {
-    final orders = await apiService.get<List>(url: 'getOrder/for/user');
+  Future<List<OrderEntity>> getOrders(int type) async {
+    final orders = await apiService.get<List>(url: 'getOrder/for/user',queryParameters: {
+      'type': type
+    });
     return orders.map((e) => OrderModel.fromJson(e)).toList();
   }
 
