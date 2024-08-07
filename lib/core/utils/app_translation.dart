@@ -4,7 +4,7 @@ class Translation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'ar': {
-          "Salik":"سالك",
+          "Salik":"UNI-DYE",
           "Chat with engineer":"التحدث مع المهندس",
           "Notifications": "الاشعارات",
           'Delivered': "تم التوصيل",
@@ -12,6 +12,7 @@ class Translation extends Translations {
           'Preparing': "يتم التحضير",
           'Order Received': "تم استقبال الطلب",
           'Waiting': "فى الانتظار",
+          "Chats": "المحادثات",
           'No data found':"لا توجد بيانات",
           "You must login to access this page":
               "يجب عليك تسجيل الدخول للوصول الي هذه الصفحة",
@@ -76,6 +77,7 @@ class Translation extends Translations {
           "Ok": "حسنا",
         },
         'en': {
+            "Salik":"UNI-DYE",
           'cancelpayment': "Are you sure you want to cancel the payment?",
           'yescancel': "Cancel",
           "validation_the_same":
