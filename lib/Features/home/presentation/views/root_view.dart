@@ -9,6 +9,8 @@ import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
+import '../../../chat/presentation/chats_screen.dart';
+
 class RootView extends ConsumerWidget {
   const RootView({super.key});
 
@@ -22,6 +24,9 @@ class RootView extends ConsumerWidget {
         ref.watch(currentUserProvider) == null
             ? const YouMustLoginPage()
             : const OrdersView(),
+        ref.watch(currentUserProvider) == null
+            ? const YouMustLoginPage()
+            : const ChatsScreen(),
         ref.watch(currentUserProvider) == null
             ? const YouMustLoginPage()
             : const SettingsView()
@@ -55,9 +60,14 @@ class RootView extends ConsumerWidget {
                   index: 1,
                 ),
                 BottomNavigationItem(
+                  title: "Chats".tr,
+                  icon: Icons.message,
+                  index: 2,
+                ),
+                BottomNavigationItem(
                   title: "Settings".tr,
                   icon: Icons.settings,
-                  index: 2,
+                  index: 3,
                 ),
               ],
             ),

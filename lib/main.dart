@@ -95,8 +95,10 @@ Future setupLocator() async {
       () => ChatsDataSourceImpl(getIt<ApiService>()));
   getIt.registerLazySingleton<ChatsRepo>(
       () => ChatsRepoImpl(dataSource: getIt<ChatsDataSource>()));
-  getIt.registerLazySingleton<FetchChatsUseCase>(
-      () => FetchChatsUseCase(chatsRepo: getIt<ChatsRepo>()));
+  getIt.registerLazySingleton<FetchConversationUseCase>(
+      () => FetchConversationUseCase(chatsRepo: getIt<ChatsRepo>()));
+  getIt.registerLazySingleton<FetchChatRoomsUseCase>(
+      () => FetchChatRoomsUseCase(chatsRepo: getIt<ChatsRepo>()));
   getIt.registerLazySingleton<FetchSendMessageUseCase>(
       () => FetchSendMessageUseCase(chatsRepo: getIt<ChatsRepo>()));
 
