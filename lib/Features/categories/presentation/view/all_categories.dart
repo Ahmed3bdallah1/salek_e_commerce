@@ -51,16 +51,7 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
           dividerColor: AppColors.primaryColorSALEK1,
           isScrollable: false,
           tabs: [
-            Tab(
-              child: SizedBox(
-                child: Center(
-                  child: Text(
-                    'Products'.tr,
-                    style: AppFontStyle.black_18,
-                  ),
-                ),
-              ),
-            ),
+
             Tab(
               child: SizedBox(
                 child: Center(
@@ -70,7 +61,17 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
                   ),
                 ),
               ),
-            )
+            ),
+             Tab(
+              child: SizedBox(
+                child: Center(
+                  child: Text(
+                    'Products'.tr,
+                    style: AppFontStyle.black_18,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -114,6 +115,7 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
                     itemBuilder: (BuildContext context, int index) {
                       return CategoryItem(
                         data[index],
+                        isProduct: true,
                         isPrimary: isPrimary,
                       );
                     },
@@ -142,6 +144,8 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
                     itemBuilder: (BuildContext context, int index) {
                       return CategoryItem(
                         data[index],
+                                                isProduct: false,
+
                         isPrimary: isPrimary,
                       );
                     },

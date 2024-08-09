@@ -11,8 +11,16 @@ import '../../../../services/presentation/views/servics_view.dart';
 class CategoryItem extends StatelessWidget {
   final bool isPrimary;
   final ServiceEntity serviceEntity;
+  final bool isProduct;
 
-  const CategoryItem(this.serviceEntity, {super.key, required this.isPrimary});
+  const CategoryItem(this.serviceEntity, {super.key,
+
+
+   required this.isPrimary,
+   required this.isProduct
+
+
+   });
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +31,12 @@ class CategoryItem extends StatelessWidget {
           Get.to(() => AllCategories(
             '${serviceEntity.catNameAr}',
                 id: serviceEntity.catId,
+
               ));
         } else {
           Get.to(() => ServiceScreen(
                 serviceEntity.catId,
+                isProduct: isProduct,
               ));
         }
       },

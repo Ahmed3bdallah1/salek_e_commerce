@@ -16,8 +16,9 @@ class CategoryModel extends ServiceEntity {
   String? total;
   String? image;
   int? status;
-  String? createdAt;
+   String? createdAt;
   String? updatedAt;
+  String? attachmentUrl;
   List<Field>? fields;
   List<ServiceEntity>? subCategory;
   List<String>? multiImages;
@@ -26,9 +27,10 @@ class CategoryModel extends ServiceEntity {
       {this.id,
       this.nameAr,
       this.nameEn,
-      this.multiImages,
+       this.multiImages,
       this.descriptionAr,
       this.textColor,
+      this.attachmentUrl,
       this.descriptionEn,
       this.image,
       this.color,
@@ -47,6 +49,8 @@ class CategoryModel extends ServiceEntity {
             serviceMultiImages: multiImages ?? [],
             serviceDiscount: discount,
             servicePrice: price,
+            attachmentUrl: attachmentUrl,
+
             catNameAr: nameAr!,
             catNameEn: nameEn!,
             catDescriptionAr: descriptionAr!,
@@ -61,6 +65,7 @@ class CategoryModel extends ServiceEntity {
       id: json['id'],
       nameAr: json['name_ar'],
       nameEn: json['name_en'],
+
       descriptionAr: json['description_ar'],
       descriptionEn: json['description_en'],
       image: json['image'],
@@ -69,6 +74,7 @@ class CategoryModel extends ServiceEntity {
       discount: json['discount'],
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],
+      attachmentUrl: json['attachmentUrl'],
       fields: json['service_fields'] != null
           ? (json['service_fields'] as List)
               .map((e) => Field.fromJson(e['field']))
