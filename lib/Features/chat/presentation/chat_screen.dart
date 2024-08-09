@@ -1,4 +1,5 @@
 import 'package:car_rentting/Features/chat/data/models/conversation_model.dart';
+import 'package:car_rentting/Ui/shared_widget/custom_text_field.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/functions/riverpod.dart';
 import 'package:car_rentting/core/utils/colors.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 import '../../../main.dart';
 import '../../auth/presentation/manager/current_user_provider.dart';
@@ -55,8 +57,9 @@ class _ChatPageState extends ConsumerState<ChatPage> {
         author: types.User(id: e.userId.toString()),
         createdAt: e.createdAt.millisecondsSinceEpoch,
         id: e.id.toString(),
+        showStatus: true,
         text: e.body,
-        status: types.Status.sent, // Update this based on your logic
+        status: types.Status.sent,
       );
     }).toList();
 
@@ -70,42 +73,47 @@ class _ChatPageState extends ConsumerState<ChatPage> {
         ),
         body: Consumer(
           builder: (context, ref, _) {
+            ref.listen(fetchConversationProvider(widget.id), (daf, sdfds) {
+              if (sdfds.hasValue) {
+                _loadMessagesFromResponse(sdfds.value!);
+              }
+            });
             final provider = ref.watch(fetchConversationProvider(widget.id));
             return provider.customWhen(
               ref: ref,
               refreshable: fetchConversationProvider(widget.id).future,
               skipLoadingOnRefresh: true,
               data: (conversation) {
-                _loadMessagesFromResponse(conversation);
                 return SafeArea(
                   child: Chat(
                     messages: _messages,
+                    // dateFormat: DateFormat.yMd().add_jm(),
+                    // timeFormat: DateFormat.yMd().add_jm(),
                     // onAttachmentPressed: _handleAttachmentPressed,
                     // onMessageTap: _handleMessageTap,
                     onPreviewDataFetched: _handlePreviewDataFetched,
-                    onSendPressed: (types.PartialText message) {
+                    onSendPressed: (types.PartialText message) async {
                       final textMessage = types.TextMessage(
                         author: _user,
                         createdAt: DateTime.now().millisecondsSinceEpoch,
                         id: const Uuid().v4(),
                         text: message.text,
                       );
-                      getIt<FetchSendMessageUseCase>().call(
+                      await getIt<FetchSendMessageUseCase>().call(
                           Tuple2(conversation.order!.id, textMessage.text));
                       ref.invalidate(fetchConversationProvider(widget.id));
                       ref.invalidate(fetchChatRoomsProvider);
                     },
                     theme: DefaultChatTheme(
                         backgroundColor: Colors.white,
-                        primaryColor: Colors.blue.withOpacity(.8),
-                        secondaryColor:
-                            AppColors.secondaryColor.withOpacity(.9),
+                        primaryColor: AppColors.primaryColorSALEK2,
+                        secondaryColor: AppColors.primaryColorSALEK1,
                         receivedMessageBodyTextStyle:
                             TextStyle(color: AppColors.white, fontSize: 16.sp),
                         inputBackgroundColor:
-                            AppColors.secondaryColor.withOpacity(.9),
+                            AppColors.primaryColorSALEK2.withOpacity(.8),
                         inputSurfaceTintColor: AppColors.primaryColor),
-                    showUserAvatars: true,
+                    // showUserAvatars: true,
                     showUserNames: true,
                     user: _user,
                     inputOptions: InputOptions(
