@@ -7,8 +7,9 @@ class ServiceEntity {
   final String? servicePrice;
   final String? serviceTotal;
   final String catNameAr;
+  final String? attachmentUrl;
   final Color catColor;
-  final Color catTextColor;
+   final Color catTextColor;
   final int catId;
   final String catNameEn;
   final String catDescriptionAr;
@@ -20,11 +21,12 @@ class ServiceEntity {
 
   ServiceEntity({
     required this.serviceTotal,
-    required this.catColor,
+     required this.catColor,
     required this.catTextColor,
     required this.serviceField,
     required this.serviceMultiImages,
     required this.servicePrice,
+    required this.attachmentUrl,
     required this.serviceDiscount,
     required this.catNameAr,
     required this.catNameEn,
@@ -37,10 +39,11 @@ class ServiceEntity {
 
   factory ServiceEntity.fromJson(Map<String, dynamic> json) {
      return ServiceEntity(
-      serviceField: (json['serviceField'] as List<dynamic>?)
+       serviceField: (json['serviceField'] as List<dynamic>?)
           ?.map((item) => Field.fromJson(item))
           .toList(),
       servicePrice: json['servicePrice'],
+      attachmentUrl: json['attachmentUrl'],
       serviceTotal: json['serviceTotal'],
       catNameAr: json['catNameAr'],
       catColor: Color(int.parse(json['catColor'], radix: 16)),

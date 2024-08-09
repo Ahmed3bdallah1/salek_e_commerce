@@ -46,6 +46,17 @@ class _OrdersViewState extends ConsumerState<OrdersView>
             dividerColor: AppColors.primaryColorSALEK1,
             isScrollable: false,
             tabs: [
+                  Tab(
+                child: SizedBox(
+                  child: Center(
+                    child: Text(
+                      'Services'.tr,
+                      style: AppFontStyle.black_18,
+                    ),
+                  ),
+                ),
+              )
+           ,
               Tab(
                 child: SizedBox(
                   child: Center(
@@ -56,17 +67,7 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                   ),
                 ),
               ),
-              Tab(
-                child: SizedBox(
-                  child: Center(
-                    child: Text(
-                      'Services'.tr,
-                      style: AppFontStyle.black_18,
-                    ),
-                  ),
-                ),
-              )
-            ],
+           ],
           ),
         ),
         body: TabBarView(
@@ -98,10 +99,13 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                         itemCount: orders.length,
                         itemBuilder: (ctx, i) => InkWell(
                             onTap: () async {
-                              orders[i].status == 0
+
+if(index==0){
+ orders[i].status == 0
                                   ? Get.to(() => ServiceScreen(
                                         orders[i].id,
                                         isFromOrder: true,
+                                        isProduct: true,
                                       ))
                                   : Get.to(() => ChatPage(
                                         id: orders[i].id,
@@ -109,6 +113,16 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                                             ? true
                                             : false,
                                       ));
+}else{
+ Get.to(() => ServiceScreen(
+                                        orders[i].id,
+                                        isFromOrder: true,
+                                        isProduct: true,
+                                      ));
+}
+
+
+
                             },
                             child: OrderItem(orders[i])),
                       );

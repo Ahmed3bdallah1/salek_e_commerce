@@ -3,6 +3,7 @@
 import 'package:car_rentting/Features/orders/domain/entities/order_entity.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:shimmer/shimmer.dart';
 
@@ -44,14 +45,37 @@ class OrderItem extends StatelessWidget {
                 order.service?.catNameAr??'',
               ),
             ),
-            CustomStepperWidget(
-              status: order.status ?? 0,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text("Order Status".tr),
+                Text(getText(order.status!)),
+                // Text((order.status).toString()),
+              ],
             ),
+            // CustomStepperWidget(
+            //   status: order.status ?? 0,
+            // ),
           ],
         ),
       ),
     );
   }
+}
+enum OrderStatus{
+pending(0),
+  accepted(1),
+
+  rejected(2),
+  done(3);
+
+  final int status;
+  const OrderStatus(this.status);
+}
+
+String getText(int status){
+       return OrderStatus.values.firstWhere((e)=>e.status==status).name.tr;
+
 }
 
 class OrderItemShimmer extends StatelessWidget {

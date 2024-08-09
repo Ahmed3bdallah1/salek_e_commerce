@@ -7,10 +7,13 @@ import 'package:car_rentting/Ui/shared_widget/custom_text_field.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/functions/riverpod.dart';
 import 'package:car_rentting/core/utils/colors.dart';
+import 'package:car_rentting/core/utils/const.dart';
 import 'package:car_rentting/main.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -34,8 +37,13 @@ import '../widgets/google_maps_picker.dart';
 class _ServiceView extends StatefulWidget {
   final ServiceEntity serviceEntity;
   final bool isFromOrder;
+  final bool isProduct;
 
-  const _ServiceView({required this.serviceEntity, this.isFromOrder = false});
+  const _ServiceView({required this.serviceEntity, this.isFromOrder = false
+,required this.isProduct
+
+
+  });
 
   @override
   State<_ServiceView> createState() => _ServiceViewState();
@@ -71,7 +79,11 @@ class _ServiceViewState extends State<_ServiceView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order Service".tr),
+        title: Text(
+!widget.isProduct?
+"Order Product".tr:
+
+          "Order Service".tr),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -79,41 +91,72 @@ class _ServiceViewState extends State<_ServiceView> {
           formGroup: formGroup,
           child: ListView(
             children: <Widget>[
-              Row(
+              Column(
                 children: [
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.serviceEntity.catNameAr,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppFontStyle.black_24.copyWith(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.bold,
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.serviceEntity.catNameAr,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppFontStyle.black_24.copyWith(
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10.h),
+                            Text(
+                              widget.serviceEntity.catDescriptionAr,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppFontStyle.black_16.copyWith(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              maxLines: 2,
+                            ),
+                          ],
+                        ),
+                      ),
+                      if (!widget.isFromOrder)
+                        Expanded(
+                          child: PriceWidget(
+                            widget.serviceEntity,
+                            color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 10.h),
-                        Text(
-                          widget.serviceEntity.catDescriptionAr,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppFontStyle.black_16.copyWith(
+                    ],
+                  ),                  if(widget.serviceEntity.attachmentUrl!=null)      Align(
+
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: InkWell(
+                      onTap: () async {
+Get.to(()=> Scaffold(
+  appBar: AppBar(),
+  body: const PDF(
+          swipeHorizontal: true,
+        ).cachedFromUrl("$uploadPathPdf${widget.serviceEntity.attachmentUrl}"),
+));
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("product specifications".tr,style: AppFontStyle.black_16.copyWith(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
-                          ),
-                          maxLines: 2,
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (!widget.isFromOrder)
-                    Expanded(
-                      child: PriceWidget(
-                        widget.serviceEntity,
-                        color: Colors.black,
+                          ),),
+                        const  Icon(FontAwesomeIcons.filePdf,
+                          color: Colors.red,
+                          size: 30,
+                                ),
+                        ],
                       ),
                     ),
+                  )
                 ],
               ),
               SizedBox(height: 10.h),
@@ -243,16 +286,20 @@ class _ServiceViewState extends State<_ServiceView> {
 
     return switch (e.type) {
       FieldsType.select ||
+      FieldsType.longText ||
       FieldsType.text ||
       FieldsType.number =>
         CustomTextField(
-          inputformatter: [
+          labelText: '${e.name}',
+          hintText: '${e.name}',
+          inputFormatter: [
             if (e.type == FieldsType.number)
               FilteringTextInputFormatter.digitsOnly
           ],
           type: e.type == FieldsType.select
               ? TextFieldType.selectable
               : TextFieldType.text,
+              maxLines: e.type == FieldsType.longText?4:1,
           items: e.type == FieldsType.select
               ? e.fieldOptions!
                   .map((e) => DropdownMenuItem(
@@ -268,7 +315,8 @@ class _ServiceViewState extends State<_ServiceView> {
           inputType: e.type == FieldsType.number
               ? TextInputType.number
               : TextInputType.text,
-          labelText: '${e.name}',
+
+
         ),
       FieldsType.map => Padding(
           padding: const EdgeInsets.only(bottom: 10.0),
@@ -359,6 +407,7 @@ class _ServiceViewState extends State<_ServiceView> {
             ignoring: true,
             child: CustomTextField(
               ignore: true,
+               
               formControlName: '${e.id}',
               inputType: TextInputType.text,
               labelText: '${e.name}',
@@ -409,10 +458,14 @@ final isLoadingProvider =
 });
 
 class ServiceScreen extends ConsumerStatefulWidget {
-  const ServiceScreen(this.id, {super.key, this.isFromOrder = false});
+  const ServiceScreen(this.id,
+
+
+   {super.key, this.isFromOrder = false,required this.isProduct});
 
   final int id;
   final bool isFromOrder;
+  final bool isProduct;
 
   @override
   ConsumerState<ServiceScreen> createState() => _ServiceScreenScreenState();
@@ -432,6 +485,7 @@ class _ServiceScreenScreenState extends ConsumerState<ServiceScreen> {
               data: (data) {
                 return _ServiceView(
                   serviceEntity: data,
+                  isProduct: widget.isProduct,
                   isFromOrder: widget.isFromOrder,
                 );
               },

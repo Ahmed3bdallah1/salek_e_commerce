@@ -5,7 +5,8 @@ enum FieldsType {
   select,
   map,
   date,
-  dateAndTime;
+  dateAndTime,
+  longText;
 
   int get fieldId => index + 1;
 }
