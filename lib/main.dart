@@ -142,7 +142,7 @@ class MyApp extends StatelessWidget {
               fontFamily: GoogleFonts.tajawal().fontFamily,
             ),
             themeMode: ThemeMode.light,
-            title: 'سالك',
+            title: 'UNI-DYE',
             debugShowCheckedModeBanner: false,
             home: const SplashView(),
             translations: Translation(),

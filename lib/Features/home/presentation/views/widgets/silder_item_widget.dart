@@ -32,6 +32,7 @@ class SliderItem extends StatelessWidget {
             Get.to(() => ServiceScreen(
                   int.parse(item.navTo),
                   isFromOrder: false,
+                  isProduct: false,
                 ));
             break;
           case AdType.link:
