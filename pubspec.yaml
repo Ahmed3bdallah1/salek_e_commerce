@@ -37,12 +37,13 @@ dependencies:
   cupertino_icons: ^1.0.8
   carousel_slider: 4.2.1
   flutter_screenutil: ^5.9.3
-  cached_network_image: 3.3.1
+  cached_network_image: ^3.4.0
   dartz: 0.10.1
   dio: ^5.4.3+1
   flutter_riverpod: 2.5.1
   flutter_bloc: ^8.1.6
   font_awesome_flutter: 10.7.0
+  flutter_cached_pdfview: ^0.4.2
   rflutter_alert: 2.0.7
   flex_color_scheme: 7.3.1
   hexcolor: 3.0.1
@@ -74,12 +75,11 @@ dependencies:
   flutter_widget_from_html_core: ^0.15.1
   flutter_chat_types: ^3.6.2
   flutter_chat_ui: ^1.6.14
-  uuid: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  flutter_gen_runner: 5.5.0+1
+  flutter_gen_runner: ^5.6.0
   build_runner:
 
 

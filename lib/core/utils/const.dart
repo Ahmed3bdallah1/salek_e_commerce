@@ -10,6 +10,7 @@ const LatLng initialLatLong = LatLng(30.57499500, 31.50368170);
 const googleMapsApiKey = "AIzaSyCX3JeW9bpasQrhBXDubyI68AmV-uEhS0o";
 
 const String uploadPath = "https://unidye.onclick-eg.com/images/";
+const String uploadPathPdf = "https://unidye.onclick-eg.com/pdfs/";
 const String GET_CATEGORY_WITH_SERVICE = "getCategory/with/services";
 const String GET_CATEGORIES = "getCategory";
 const String GET_SERVICES = "getService";

@@ -1,3 +1,4 @@
+import 'package:car_rentting/Features/orders/presentation/View/widgets/order_item_widget.dart';
 import 'package:get/get.dart';
 
 class Translation extends Translations {
@@ -12,7 +13,7 @@ class Translation extends Translations {
           'Preparing': "يتم التحضير",
           'Order Received': "تم استقبال الطلب",
           'Waiting': "فى الانتظار",
-          "Chats": "المحادثات",
+          "Chats": "الإستشارات",
           'No data found':"لا توجد بيانات",
           "You must login to access this page":
               "يجب عليك تسجيل الدخول للوصول الي هذه الصفحة",
@@ -28,11 +29,14 @@ class Translation extends Translations {
               "العنوان يجب ان يكون اكتر من 10 حروف",
           'continuepay': "استكمال الدفع",
           "Categories": "الفئات",
+          "Active": "استشارات حالية",
+          "Completed": "استشارات مكتملة",
           'Name is required': "الاسم مطلوب",
           "Name": "الاسم",
           "Email is required": "البريد الالكتروني مطلوب",
           "Email": "البريد الالكتروني",
           "Phone": "الهاتف",
+          "Order Status":"حالة الطلب",
           "Back": "رجوع",
           'Phone is required': "الهاتف مطلوب",
           "EGP": "EGP",
@@ -53,7 +57,14 @@ class Translation extends Translations {
           "Orders": "الطلبات",
           "Featured Services": "خصائص الخدامات",
           "Logout": "تسجيل الخروج",
+          "Order Product": "طلب منتج",
+          "product specifications":"مواصفات المنتج",
           "Products": "المنتجات",
+          OrderStatus.accepted.name:"تم قبول الطلب",
+          OrderStatus.done.name :"تم تنفيذ الطلب",
+          OrderStatus.rejected.name :"تم رفض الطلب",
+          OrderStatus.pending.name :"في انتظار التنفيذ",
+
           "Services":"الإستشارات",
           "My Profile": "الملف الشخصي",
           "Change Password": "تغيير كلمة المرور",
@@ -83,8 +94,11 @@ class Translation extends Translations {
           "validation_the_same":
               "The old password can't be the same as the new password",
           'continuepay': "Continue payment",
-          // Language.arabic.name: "العربية",
-          // Language.english.name: "English",
+           OrderStatus.accepted.name: "Accepted",
+          OrderStatus.done.name : "Done ",
+          OrderStatus.rejected.name :"Order Rejected",
+          OrderStatus.pending.name :"Pending",
+
         }
       };
 }
