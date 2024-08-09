@@ -38,8 +38,8 @@ class ChatsRoomEntity {
   factory ChatsRoomEntity.fromJson(Map<String, dynamic> json) =>
       ChatsRoomEntity(
         id: json["id"],
-        title: "title",
-        photo: Assets.base.logo.path,
+        title: json['titleAr'],
+        photo: json['photo'],
         userId: json["user_id"],
         servicesId: json["services_id"],
         status: json["status"],

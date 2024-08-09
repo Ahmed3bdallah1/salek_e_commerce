@@ -43,9 +43,9 @@ class ChatsRepoImpl extends ChatsRepo {
   }
 
   @override
-  Future<Either<Failure, List<ChatsRoomEntity>>> getChatRooms() async {
+  Future<Either<Failure, List<ChatsRoomEntity>>> getChatRooms(int status) async {
     try {
-      final res = await dataSource.getConversationsList();
+      final res = await dataSource.getConversationsList(status);
       return right(res);
     } catch (e) {
       if (e is DioException) {

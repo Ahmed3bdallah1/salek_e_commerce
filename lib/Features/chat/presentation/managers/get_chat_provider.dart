@@ -1,3 +1,4 @@
+import 'package:car_rentting/Features/categories/presentation/view/all_categories.dart';
 import 'package:car_rentting/Features/chat/data/models/conversation_model.dart';
 import 'package:car_rentting/Features/chat/domain/entities/chats_room_entity.dart';
 import 'package:car_rentting/Features/chat/domain/repo/chats_repo.dart';
@@ -7,13 +8,15 @@ import '../../../../main.dart';
 
 final fetchConversationProvider =
     FutureProvider.family.autoDispose<ConversationModel, int>((ref, id) async {
-  final res = await FetchConversationUseCase(chatsRepo: getIt<ChatsRepo>()).call(id);
+  final res =
+      await FetchConversationUseCase(chatsRepo: getIt<ChatsRepo>()).call(id);
   return res.fold((l) => throw l, (r) => r);
 });
 
-
 final fetchChatRoomsProvider =
     FutureProvider.autoDispose<List<ChatsRoomEntity>>((ref) async {
-  final res = await FetchChatRoomsUseCase(chatsRepo: getIt<ChatsRepo>()).call();
+  final type = ref.watch(selectedTypeCategoryProvider);
+  final res = await FetchChatRoomsUseCase(chatsRepo: getIt<ChatsRepo>())
+      .call(type);
   return res.fold((l) => throw l, (r) => r);
 });

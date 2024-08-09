@@ -7,7 +7,7 @@ import '../../../../core/utils/api_service.dart';
 abstract class ChatsDataSource {
   Future<ConversationModel> getConversation({required int id});
 
-  Future<List<ChatsRoomEntity>> getConversationsList();
+  Future<List<ChatsRoomEntity>> getConversationsList(int status);
 
   Future<bool> sendMessage({required int id, required String body});
 }
@@ -32,8 +32,10 @@ class ChatsDataSourceImpl extends ChatsDataSource {
   }
 
   @override
-  Future<List<ChatsRoomEntity>> getConversationsList() async {
-    final conversations = await apiService.get<List>(url: GET_CHATS);
+  Future<List<ChatsRoomEntity>> getConversationsList(int status) async {
+    final conversations = await apiService.get<List>(url: GET_CHATS,queryParameters: {
+      "status": status
+    });
     return conversations.map((e) => ChatsRoomEntity.fromJson(e)).toList();
   }
 }

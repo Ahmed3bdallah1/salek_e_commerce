@@ -18,7 +18,7 @@ class FetchConversationUseCase extends UseCase<ConversationModel, int> {
   }
 }
 
-class FetchChatRoomsUseCase extends UseCase<List<ChatsRoomEntity>,NoParam> {
+class FetchChatRoomsUseCase extends UseCase<List<ChatsRoomEntity>,int> {
   final ChatsRepo chatsRepo;
 
   FetchChatRoomsUseCase({
@@ -26,8 +26,8 @@ class FetchChatRoomsUseCase extends UseCase<List<ChatsRoomEntity>,NoParam> {
   });
 
   @override
-  Future<Either<Failure, List<ChatsRoomEntity>>> call([void param]) {
-    return chatsRepo.getChatRooms();
+  Future<Either<Failure, List<ChatsRoomEntity>>> call([int? param]) {
+    return chatsRepo.getChatRooms(param!);
   }
 }
 

@@ -11,5 +11,5 @@ abstract class ChatsRepo {
   Future<Either<Failure, ConversationModel>> getConversations(
       {required int id});
 
-  Future<Either<Failure, List<ChatsRoomEntity>>> getChatRooms();
+  Future<Either<Failure, List<ChatsRoomEntity>>> getChatRooms(int status);
 }
