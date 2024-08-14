@@ -54,11 +54,11 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBzpDslIK5nbM_b3WpVTUMwvCrDhPbBFU8',
-    appId: '1:1010019383791:android:91a15b24e8d899992dde1a',
-    messagingSenderId: '1010019383791',
-    projectId: 'cleaning-service-66ce3',
-    storageBucket: 'cleaning-service-66ce3.appspot.com',
+    apiKey: 'AIzaSyCogOHGh10X65EukEY6aLqrYT3XsPPvRzY',
+    appId: '1:549864062270:android:5dd54c0d998a501d93c06f',
+    messagingSenderId: '549864062270',
+    projectId: 'elsherkaelarabia',
+    storageBucket: 'elsherkaelarabia.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1010019383791',
     projectId: 'cleaning-service-66ce3',
     storageBucket: 'cleaning-service-66ce3.appspot.com',
-    iosBundleId: 'com.onclick.washingcars',
+    iosBundleId: 'com.onclick.UniDye',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +76,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1010019383791',
     projectId: 'cleaning-service-66ce3',
     storageBucket: 'cleaning-service-66ce3.appspot.com',
-    iosBundleId: 'com.onclick.washingcars.RunnerTests',
+    iosBundleId: 'com.onclick.UniDye.RunnerTests',
   );
 }

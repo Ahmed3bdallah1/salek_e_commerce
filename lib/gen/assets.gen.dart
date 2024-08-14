@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsBaseGen {
   const $AssetsBaseGen();
 
+  /// File path: assets/base/background_image.svg
+  String get backgroundImage => 'assets/base/background_image.svg';
+
   /// File path: assets/base/eye-crossed.svg
   String get eyeCrossed => 'assets/base/eye-crossed.svg';
 
@@ -47,6 +50,7 @@ class $AssetsBaseGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        backgroundImage,
         eyeCrossed,
         eye,
         gift,
@@ -94,18 +98,24 @@ class Assets {
 
   static const $AssetsBaseGen base = $AssetsBaseGen();
   static const $AssetsSocialMediaGen socialMedia = $AssetsSocialMediaGen();
+  static const String a152 = 'assets/عقارك-15 (2).svg';
   static const String a15 = 'assets/عقارك-15.svg';
 
   /// List of all assets
-  static List<String> get values => [a15];
+  static List<String> get values => [a152, a15];
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size = null});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
 
   final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,
