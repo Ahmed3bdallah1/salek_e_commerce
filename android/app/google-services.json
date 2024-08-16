@@ -1,26 +1,115 @@
 {
   "project_info": {
-    "project_number": "1010019383791",
-    "project_id": "cleaning-service-66ce3",
-    "storage_bucket": "cleaning-service-66ce3.appspot.com"
+    "project_number": "549864062270",
+    "project_id": "elsherkaelarabia",
+    "storage_bucket": "elsherkaelarabia.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1010019383791:android:91a15b24e8d899992dde1a",
+        "mobilesdk_app_id": "1:549864062270:android:5dd54c0d998a501d93c06f",
         "android_client_info": {
-          "package_name": "com.onclick.washingcars"
+          "package_name": "com.onclick.UniDye"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBzpDslIK5nbM_b3WpVTUMwvCrDhPbBFU8"
+          "current_key": "AIzaSyCogOHGh10X65EukEY6aLqrYT3XsPPvRzY"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "549864062270-hmfps05vr0ujcvk5hoak709e70hlhqt6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.onclick.arabiccompany"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549864062270:android:ac0370d848c23bca93c06f",
+        "android_client_info": {
+          "package_name": "com.onclick.arabiccompany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCogOHGh10X65EukEY6aLqrYT3XsPPvRzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "549864062270-hmfps05vr0ujcvk5hoak709e70hlhqt6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.onclick.arabiccompany"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549864062270:android:9e6b7ab26530789693c06f",
+        "android_client_info": {
+          "package_name": "com.onclick.washingcars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCogOHGh10X65EukEY6aLqrYT3XsPPvRzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549864062270-cqbmi9hme9oed9gbu1ltpnmssfqqe6us.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "549864062270-hmfps05vr0ujcvk5hoak709e70hlhqt6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.onclick.arabiccompany"
+              }
+            }
+          ]
         }
       }
     }
