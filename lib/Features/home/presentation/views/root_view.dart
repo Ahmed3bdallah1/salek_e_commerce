@@ -6,6 +6,8 @@ import 'package:car_rentting/Features/home/presentation/views/widgets/bottom_nav
 import 'package:car_rentting/Features/orders/presentation/View/orders_view.dart';
 import 'package:car_rentting/Features/settings/presentation/View/profile_view.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
+import 'package:car_rentting/core/utils/colors.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
@@ -18,60 +20,80 @@ class RootView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(rootIndexProvider);
     return Scaffold(
-      body: [
-        const HomeScreen(),
-        // const AllCategories(),
-        ref.watch(currentUserProvider) == null
-            ? const YouMustLoginPage()
-            : const OrdersView(),
-        ref.watch(currentUserProvider) == null
-            ? const YouMustLoginPage()
-            : const ChatsScreen(),
-        ref.watch(currentUserProvider) == null
-            ? const YouMustLoginPage()
-            : const SettingsView()
-      ][currentIndex],
-      bottomNavigationBar: Container(
-        height: 90.h,
-        // color: Colors.white,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: const Color(0xffE0E0E0))),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 35),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                BottomNavigationItem(
-                  title: "Home".tr,
-                  icon: Icons.home,
-                  index: 0,
-                ),
-                // BottomNavigationItem(
-                //   title: "Categories".tr,
-                //   icon: Icons.table_rows,
-                //   index: 1,
-                // ),
-                BottomNavigationItem(
-                  title: "Orders".tr,
-                  icon: Icons.history,
-                  index: 1,
-                ),
-                BottomNavigationItem(
-                  title: "Chats".tr,
-                  icon: Icons.message,
-                  index: 2,
-                ),
-                BottomNavigationItem(
-                  title: "Settings".tr,
-                  icon: Icons.settings,
-                  index: 3,
-                ),
-              ],
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Color(0xFFEDE7F6), // A light lavender color
+                  Color(0xFFB3E5FC) // A soft light blue color
+                ],
+              ),
             ),
           ),
+          [
+            const HomeScreen(),
+            // const AllCategories(),
+            ref.watch(currentUserProvider) == null
+                ? const YouMustLoginPage()
+                : const OrdersView(),
+            ref.watch(currentUserProvider) == null
+                ? const YouMustLoginPage()
+                : const ChatsScreen(),
+            ref.watch(currentUserProvider) == null
+                ? const YouMustLoginPage()
+                : const SettingsView()
+          ][currentIndex]
+        ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Color(0xFFEDE7F6), // A light lavender color
+              Color(0xFFB3E5FC) // A soft light blue color
+            ],
+          ),
+        ),
+        child: ConvexAppBar(
+          style: TabStyle.react,
+          activeColor: Colors.black,
+          color: Colors.black,
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Color(0xFFEDE7F6), // A light lavender color
+              Color(0xFFB3E5FC) // A soft light blue color
+            ],
+          ),
+          onTap: (index) {
+            ref.read(rootIndexProvider.notifier).state = index;
+          },
+          initialActiveIndex: currentIndex,
+          items: [
+            TabItem(
+              title: ("Home".tr),
+              icon: Icon(Icons.home),
+            ),
+            TabItem(
+              title: ("Orders".tr),
+              icon: Icon(Icons.history),
+            ),
+            TabItem(
+              title: ("Chats".tr),
+              icon: Icon(Icons.message),
+            ),
+            TabItem(
+              title: ("Settings".tr),
+              icon: Icon(Icons.settings),
+            ),
+          ],
         ),
       ),
     );
@@ -84,6 +106,7 @@ class YouMustLoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
