@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="OBJECTS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 750 500.31">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre_4);
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-5 {
+        fill: #fff;
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-3 {
+        fill: url(#Degradado_sin_nombre_7);
+      }
+
+      .cls-6 {
+        fill: url(#Degradado_sin_nombre_8);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="16.13"/>
+      <feGaussianBlur result="blur" stdDeviation="15.06"/>
+      <feFlood flood-color="#cbcbcc" flood-opacity=".35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="271.73" y="29.53" width="195.81" height="423.26" rx="18.07" ry="18.07"/>
+    </clipPath>
+    <linearGradient id="Degradado_sin_nombre_8" data-name="Degradado sin nombre 8" x1="271.73" y1="241.16" x2="467.54" y2="241.16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ababab"/>
+      <stop offset="1" stop-color="#5e5e5e"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" x="271.73" y="29.53" width="195.81" height="423.26" rx="18.07" ry="18.07"/>
+    </clipPath>
+    <linearGradient id="Degradado_sin_nombre_7" data-name="Degradado sin nombre 7" x1="254.01" y1="174.9" x2="405.94" y2="174.9" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8c8c8c"/>
+      <stop offset="1" stop-color="#5e5e5e" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_4" data-name="Degradado sin nombre 4" x1="3324.56" y1="502.45" x2="3476.49" y2="502.45" gradientTransform="translate(3799.14 797.98) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8c8c8c"/>
+      <stop offset="1" stop-color="#5e5e5e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-5" x="271.73" y="29.53" width="174.77" height="403.51" rx="16.67" ry="16.67"/>
+  <g class="cls-7">
+    <rect class="cls-6" x="271.73" y="29.53" width="195.81" height="423.26" rx="18.07" ry="18.07"/>
+    <g class="cls-4">
+      <g>
+        <path class="cls-3" d="M254.01,334.32c33.37-14.4,17.72-106.71,29.86-127.83,15.87-27.6,33.56-22.48,47.72-42.9,22.7-32.74,11.12-97.54,26.62-117.24,15.02-19.1,47.74-27.08,47.74-30.88h-151.93v318.84Z"/>
+        <path class="cls-2" d="M474.59,136.11c-33.37,14.4-17.72,106.71-29.86,127.83-15.87,27.6-33.56,22.48-47.72,42.9-22.7,32.74-11.12,97.54-26.62,117.24-15.02,19.1-47.74,27.08-47.74,30.88h151.93V136.11Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
