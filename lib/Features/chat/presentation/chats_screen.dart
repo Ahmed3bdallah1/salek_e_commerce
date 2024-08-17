@@ -30,7 +30,8 @@ class _ChatsScreenState extends ConsumerState<ChatsScreen>     with TickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(      backgroundColor: Colors.transparent,
+
       appBar: AppBar(
         title: Text(
           "Chats".tr,

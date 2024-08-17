@@ -38,6 +38,8 @@ class _OrdersViewState extends ConsumerState<OrdersView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.transparent,
+
         appBar: AppBar(
           title: Text('Orders'.tr),
           bottom: TabBar(

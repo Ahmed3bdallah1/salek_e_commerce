@@ -10,11 +10,14 @@ import 'package:car_rentting/Features/setting/presentation/widgets/whatsapp_floa
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/functions/riverpod.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:car_rentting/core/utils/colors.dart';
 import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../auth/presentation/manager/get_user_provider.dart';
@@ -31,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       floatingActionButton: Consumer(
         builder: (context, ref, widget) {
           final settings = ref.watch(fetchSettingsProvider);
@@ -74,6 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
         preferredSize: Size.fromHeight(kToolbarHeight*1.5),
 
         child: AppBar(
+          backgroundColor: Colors.transparent,
+
 
           title: Image.asset(Assets.base.lgo.path,
 

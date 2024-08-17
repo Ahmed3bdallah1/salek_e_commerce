@@ -19,7 +19,8 @@ class SettingsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
+    return Scaffold(      backgroundColor: Colors.transparent,
+
       body: SafeArea(
         child: Padding(
           padding:

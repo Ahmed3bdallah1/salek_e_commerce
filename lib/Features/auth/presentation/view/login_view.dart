@@ -36,6 +36,7 @@ class LoginView extends ConsumerWidget {
             LoginProvider(
               icon: (Icons.person),
               callback: () async {
+
                 return Get.offAll(() => const RootView());
               },
               label: "Login as Guest".tr,
