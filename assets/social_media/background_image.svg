@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 241.44 438.96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #707850;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-4 {
+        fill: #6e764e;
+      }
+
+      .cls-4, .cls-5 {
+        fill-rule: evenodd;
+      }
+
+      .cls-6 {
+        fill: #fff;
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-7 {
+        fill: #e1e1d3;
+      }
+
+      .cls-5 {
+        fill: #c4be94;
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="16.13"/>
+      <feGaussianBlur result="blur" stdDeviation="15.06"/>
+      <feFlood flood-color="#6e499d" flood-opacity=".35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="36.15" y="13.4" width="168.98" height="365.28" rx="18.07" ry="18.07"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-7" x="36.15" y="13.4" width="168.98" height="365.28" rx="18.07" ry="18.07"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g>
+      <rect class="cls-6" x="45.23" y="29.14" width="150.83" height="348.23" rx="16.67" ry="16.67"/>
+      <g class="cls-8">
+        <g>
+          <rect class="cls-1" x="36.15" y="13.4" width="168.98" height="365.28" rx="18.07" ry="18.07"/>
+          <g>
+            <rect class="cls-7" x="36.15" y="13.4" width="168.98" height="365.28" rx="18.07" ry="18.07"/>
+            <g class="cls-3">
+              <g>
+                <path class="cls-4" d="M20.86,276.43c28.8-12.43,15.29-92.09,25.77-110.31,13.7-23.82,28.96-19.4,41.18-37.02,19.59-28.26,9.6-84.18,22.97-101.18,12.96-16.48,41.2-23.37,41.2-26.65H20.86v275.16Z"/>
+                <path class="cls-5" d="M211.22,105.37c-28.8,12.43-15.29,92.09-25.77,110.31-13.7,23.82-28.96,19.4-41.18,37.02-19.59,28.26-9.6,84.18-22.97,101.18-12.96,16.48-41.2,23.37-41.2,26.65h131.12V105.37Z"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
