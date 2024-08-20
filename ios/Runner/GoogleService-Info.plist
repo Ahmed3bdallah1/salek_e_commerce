@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCsCdfMtombp8OiiyMPNMvAlmDr5KOFn1I</string>
+	<string>AIzaSyCsccNoS4AYa2pn5TZFoF_9xgHOHfQjDas</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1010019383791</string>
+	<string>549864062270</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.onclick.washingcars</string>
+	<string>com.onclick.UniDye</string>
 	<key>PROJECT_ID</key>
-	<string>cleaning-service-66ce3</string>
+	<string>elsherkaelarabia</string>
 	<key>STORAGE_BUCKET</key>
-	<string>cleaning-service-66ce3.appspot.com</string>
+	<string>elsherkaelarabia.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1010019383791:ios:16121d84f7a8fad92dde1a</string>
+	<string>1:549864062270:ios:0c012cd5cd115ffd93c06f</string>
 </dict>
 </plist>
