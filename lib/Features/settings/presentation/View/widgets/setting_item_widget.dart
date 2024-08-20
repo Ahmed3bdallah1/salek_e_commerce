@@ -23,7 +23,7 @@ class SettingsItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           height: 50,
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.primaryColor4,
               borderRadius: const BorderRadius.all(
                 Radius.circular(15),
               ),
@@ -38,7 +38,7 @@ class SettingsItem extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: color ?? AppColors.lightColor2,
+                color: color ?? AppColors.primaryColor2,
               ),
               const SizedBox(width: 20),
               Text(title),

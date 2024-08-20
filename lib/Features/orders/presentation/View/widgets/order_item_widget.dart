@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:car_rentting/Features/orders/domain/entities/order_entity.dart';
+import 'package:car_rentting/Ui/shared_widget/custom_text_field.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:car_rentting/core/utils/colors.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:shimmer/shimmer.dart';
@@ -19,7 +21,13 @@ class OrderItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: order.status == 0
+            ? Colors.yellow.withOpacity(.6)
+            : order.status == 1
+                ? Colors.green
+                : order.status == 2
+                    ? AppColor.danger.withOpacity(.6)
+                    : AppColors.primaryColor3,
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,
@@ -42,7 +50,7 @@ class OrderItem extends StatelessWidget {
                   style: AppFontStyle.black_18
                       .copyWith(fontWeight: FontWeight.bold)),
               subtitle: Text(
-                order.service?.catNameAr??'',
+                order.service?.catNameAr ?? '',
               ),
             ),
             Row(
@@ -62,20 +70,20 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
-enum OrderStatus{
-pending(0),
-  accepted(1),
 
+enum OrderStatus {
+  pending(0),
+  accepted(1),
   rejected(2),
   done(3);
 
   final int status;
+
   const OrderStatus(this.status);
 }
 
-String getText(int status){
-       return OrderStatus.values.firstWhere((e)=>e.status==status).name.tr;
-
+String getText(int status) {
+  return OrderStatus.values.firstWhere((e) => e.status == status).name.tr;
 }
 
 class OrderItemShimmer extends StatelessWidget {

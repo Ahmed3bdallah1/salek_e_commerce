@@ -68,6 +68,24 @@ class $AssetsBaseGen {
 class $AssetsSocialMediaGen {
   const $AssetsSocialMediaGen();
 
+  /// File path: assets/social_media/Artboard.png
+  AssetGenImage get artboard =>
+      const AssetGenImage('assets/social_media/Artboard.png');
+
+  /// File path: assets/social_media/Asset 2.png
+  AssetGenImage get asset2 =>
+      const AssetGenImage('assets/social_media/Asset 2.png');
+
+  /// File path: assets/social_media/Asset 3.png
+  AssetGenImage get asset3 =>
+      const AssetGenImage('assets/social_media/Asset 3.png');
+
+  /// File path: assets/social_media/appbar_logo.svg
+  String get appbarLogo => 'assets/social_media/appbar_logo.svg';
+
+  /// File path: assets/social_media/background_image.svg
+  String get backgroundImage => 'assets/social_media/background_image.svg';
+
   /// File path: assets/social_media/facebook.png
   AssetGenImage get facebook =>
       const AssetGenImage('assets/social_media/facebook.png');
@@ -80,6 +98,13 @@ class $AssetsSocialMediaGen {
   AssetGenImage get instagram =>
       const AssetGenImage('assets/social_media/instagram.png');
 
+  /// File path: assets/social_media/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/social_media/logo.png');
+
+  /// File path: assets/social_media/logo2.png
+  AssetGenImage get logo2 =>
+      const AssetGenImage('assets/social_media/logo2.png');
+
   /// File path: assets/social_media/twitter.png
   AssetGenImage get twitter =>
       const AssetGenImage('assets/social_media/twitter.png');
@@ -89,8 +114,20 @@ class $AssetsSocialMediaGen {
       const AssetGenImage('assets/social_media/youtube.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [facebook, gmail, instagram, twitter, youtube];
+  List<dynamic> get values => [
+        artboard,
+        asset2,
+        asset3,
+        appbarLogo,
+        backgroundImage,
+        facebook,
+        gmail,
+        instagram,
+        logo,
+        logo2,
+        twitter,
+        youtube
+      ];
 }
 
 class Assets {
@@ -98,11 +135,6 @@ class Assets {
 
   static const $AssetsBaseGen base = $AssetsBaseGen();
   static const $AssetsSocialMediaGen socialMedia = $AssetsSocialMediaGen();
-  static const String a152 = 'assets/عقارك-15 (2).svg';
-  static const String a15 = 'assets/عقارك-15.svg';
-
-  /// List of all assets
-  static List<String> get values => [a152, a15];
 }
 
 class AssetGenImage {

@@ -37,7 +37,10 @@ class UserProfileView extends StatelessWidget {
     ]);
 
     return Scaffold(
+      backgroundColor: AppColors.primaryColor4,
       appBar: AppBar(
+        elevation: 4,
+        backgroundColor: AppColors.primaryColor3,
         title: Text('Change Password'.tr),
       ),
       body: SingleChildScrollView(
@@ -120,7 +123,7 @@ class UserProfileView extends StatelessWidget {
                       isValid: form.valid,
                       text: 'Edit'.tr,
                       textColor: Colors.white,
-                      color: AppColors.primaryColorSALEK2,
+                      color: AppColors.primaryColor1,
                       isLoading: isLoading,
                       onPressed: () async {
                         if (form.valid) {

@@ -60,6 +60,9 @@ class HomeSliderWidget extends ConsumerWidget {
           );
         },
         data: (dsa) {
+          if(dsa.isEmpty){
+            return const SizedBox.shrink();
+          }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

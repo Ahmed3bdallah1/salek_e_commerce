@@ -15,7 +15,10 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primaryColor4,
       appBar: AppBar(
+        elevation: 4,
+        backgroundColor: AppColors.primaryColor3,
         title: Text('Privacy Policy'.tr),
       ),
       body: Consumer(
@@ -39,13 +42,16 @@ class PrivacyPolicyScreen extends StatelessWidget {
           );
         },
       ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CustomFilledButton(
-          text: "Ok".tr,
-          textColor: Colors.white,
-          color: AppColors.primaryColorSALEK2,
-          onPressed: () => Get.back(),
+      bottomSheet: Container(
+        color: AppColors.primaryColor4,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomFilledButton(
+            text: "Ok".tr,
+            textColor: Colors.white,
+            color: AppColors.primaryColorSALEK2,
+            onPressed: () => Get.back(),
+          ),
         ),
       ),
     );

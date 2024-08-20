@@ -44,7 +44,7 @@ class _SplashViewState extends ConsumerState<SplashView>
     responsiveInit(context);
     ref.watch(splashProvider);
     return Scaffold(
-      backgroundColor: AppColors.primaryColorSALEK2,
+      backgroundColor: AppColors.primaryColor1,
       body: ScaleTransition(
         scale: _animation,
         child: const Center(child: LogoWidget()),

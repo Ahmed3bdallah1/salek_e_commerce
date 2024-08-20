@@ -20,58 +20,28 @@ class RootView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(rootIndexProvider);
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Color(0xFFEDE7F6), // A light lavender color
-                  Color(0xFFB3E5FC) // A soft light blue color
-                ],
-              ),
-            ),
-          ),
-          [
-            const HomeScreen(),
-            // const AllCategories(),
-            ref.watch(currentUserProvider) == null
-                ? const YouMustLoginPage()
-                : const OrdersView(),
-            ref.watch(currentUserProvider) == null
-                ? const YouMustLoginPage()
-                : const ChatsScreen(),
-            ref.watch(currentUserProvider) == null
-                ? const YouMustLoginPage()
-                : const SettingsView()
-          ][currentIndex]
-        ],
-      ),
+      body: [
+        const HomeScreen(),
+        // const AllCategories(),
+        ref.watch(currentUserProvider) == null
+            ? const YouMustLoginPage()
+            : const OrdersView(),
+        ref.watch(currentUserProvider) == null
+            ? const YouMustLoginPage()
+            : const ChatsScreen(),
+        ref.watch(currentUserProvider) == null
+            ? const YouMustLoginPage()
+            : const SettingsView()
+      ][currentIndex],
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: <Color>[
-              Color(0xFFEDE7F6), // A light lavender color
-              Color(0xFFB3E5FC) // A soft light blue color
-            ],
-          ),
+          color: AppColors.primaryColor3,
         ),
         child: ConvexAppBar(
           style: TabStyle.react,
           activeColor: Colors.black,
+          backgroundColor: AppColors.primaryColor3,
           color: Colors.black,
-          gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: <Color>[
-              Color(0xFFEDE7F6), // A light lavender color
-              Color(0xFFB3E5FC) // A soft light blue color
-            ],
-          ),
           onTap: (index) {
             ref.read(rootIndexProvider.notifier).state = index;
           },

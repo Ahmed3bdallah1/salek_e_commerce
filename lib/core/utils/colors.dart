@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primaryColor = Color.fromRGBO(123	,124,	127	,1); // Dark blue
+  static const Color primaryColor1 = Color(0xFF6c744d);
+  static const Color primaryColor5 = Color(0xFFf5f5f7);
+  static const Color primaryColor4 = Color(0xFFe5e5d9);
+  static const Color primaryColor3 = Color(0xFFc4bf95);
+  static const Color primaryColor2 = Color(0xFF7b772a);
   static const Color primaryColorSALEK1 = Color.fromRGBO(123	,124,	127	,1); // Dark blue
   static const Color primaryColorSALEK2 = Color.fromRGBO(0	,0,	0,1	);
   static const Color secondaryColor = Color(0xFF365486); // Blue

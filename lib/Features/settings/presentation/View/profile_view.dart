@@ -6,6 +6,7 @@ import 'package:car_rentting/Features/settings/presentation/View/widgets/setting
 import 'package:car_rentting/Features/settings/presentation/View/widgets/social_media_content_widget.dart';
 import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
+import 'package:car_rentting/core/utils/colors.dart';
 import 'package:car_rentting/core/utils/const.dart';
 import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
@@ -19,8 +20,8 @@ class SettingsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(      backgroundColor: Colors.transparent,
-
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor3,
       body: SafeArea(
         child: Padding(
           padding:
@@ -69,7 +70,7 @@ class SettingsView extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Icon(CupertinoIcons.info, size: 20),

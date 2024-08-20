@@ -69,6 +69,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.primaryColor3,
           title: Text("Chat with engineer".tr),
         ),
         body: Consumer(
@@ -87,10 +88,6 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                 return SafeArea(
                   child: Chat(
                     messages: _messages,
-                    // dateFormat: DateFormat.yMd().add_jm(),
-                    // timeFormat: DateFormat.yMd().add_jm(),
-                    // onAttachmentPressed: _handleAttachmentPressed,
-                    // onMessageTap: _handleMessageTap,
                     onPreviewDataFetched: _handlePreviewDataFetched,
                     onSendPressed: (types.PartialText message) async {
                       final textMessage = types.TextMessage(
@@ -105,13 +102,13 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                       ref.invalidate(fetchChatRoomsProvider);
                     },
                     theme: DefaultChatTheme(
-                        backgroundColor: Colors.white,
-                        primaryColor: AppColors.primaryColorSALEK2,
-                        secondaryColor: AppColors.primaryColorSALEK1,
+                        backgroundColor: AppColors.primaryColor3,
+                        primaryColor: AppColors.primaryColor1,
+                        secondaryColor: AppColors.primaryColor2,
                         receivedMessageBodyTextStyle:
                             TextStyle(color: AppColors.white, fontSize: 16.sp),
                         inputBackgroundColor:
-                            AppColors.primaryColorSALEK2.withOpacity(.8),
+                            AppColors.primaryColor1.withOpacity(.8),
                         inputSurfaceTintColor: AppColors.primaryColor),
                     // showUserAvatars: true,
                     showUserNames: true,

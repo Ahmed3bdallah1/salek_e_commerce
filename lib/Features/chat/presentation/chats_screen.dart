@@ -17,30 +17,34 @@ class ChatsScreen extends ConsumerStatefulWidget {
   ConsumerState<ChatsScreen> createState() => _ChatsScreenState();
 }
 
-class _ChatsScreenState extends ConsumerState<ChatsScreen>     with TickerProviderStateMixin {
+class _ChatsScreenState extends ConsumerState<ChatsScreen>
+    with TickerProviderStateMixin {
   late final TabController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 2, vsync: this)..addListener(() {
-        ref.read(selectedTypeCategoryProvider.notifier).state = controller.index;
-    });
+    controller = TabController(length: 2, vsync: this)
+      ..addListener(() {
+        ref.read(selectedTypeCategoryProvider.notifier).state =
+            controller.index;
+      });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      backgroundColor: Colors.transparent,
-
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor4,
       appBar: AppBar(
+        backgroundColor: AppColors.primaryColor3,
         title: Text(
           "Chats".tr,
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-          bottom: TabBar(
+        bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.label,
           controller: controller,
-          dividerColor: AppColors.primaryColorSALEK1,
+          dividerColor: AppColors.primaryColor1,
           isScrollable: false,
           tabs: [
             Tab(

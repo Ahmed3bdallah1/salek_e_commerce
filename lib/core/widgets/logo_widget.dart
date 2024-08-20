@@ -1,4 +1,7 @@
 import 'package:car_rentting/core/functions/responsive.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../gen/assets.gen.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({
@@ -14,8 +17,7 @@ class LogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     responsiveInit(context);
     return Image.asset(
-      "assets/base/logo.png",
-      color: colorImage ?? Colors.white,
+      Assets.socialMedia.logo.path,
       width: 0.64.sw,
     );
   }

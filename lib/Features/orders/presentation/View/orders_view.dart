@@ -38,9 +38,9 @@ class _OrdersViewState extends ConsumerState<OrdersView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.transparent,
-
+        backgroundColor: AppColors.primaryColor4,
         appBar: AppBar(
+          backgroundColor: AppColors.primaryColor3,
           title: Text('Orders'.tr),
           bottom: TabBar(
             indicatorSize: TabBarIndicatorSize.label,
@@ -48,7 +48,7 @@ class _OrdersViewState extends ConsumerState<OrdersView>
             dividerColor: AppColors.primaryColorSALEK1,
             isScrollable: false,
             tabs: [
-                  Tab(
+              Tab(
                 child: SizedBox(
                   child: Center(
                     child: Text(
@@ -57,8 +57,7 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                     ),
                   ),
                 ),
-              )
-           ,
+              ),
               Tab(
                 child: SizedBox(
                   child: Center(
@@ -69,7 +68,7 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                   ),
                 ),
               ),
-           ],
+            ],
           ),
         ),
         body: TabBarView(
@@ -101,30 +100,26 @@ class _OrdersViewState extends ConsumerState<OrdersView>
                         itemCount: orders.length,
                         itemBuilder: (ctx, i) => InkWell(
                             onTap: () async {
-
-if(index==0){
- orders[i].status == 0
-                                  ? Get.to(() => ServiceScreen(
-                                        orders[i].id,
-                                        isFromOrder: true,
-                                        isProduct: true,
-                                      ))
-                                  : Get.to(() => ChatPage(
-                                        id: orders[i].id,
-                                        isDisabled: orders[i].status == 3
-                                            ? true
-                                            : false,
-                                      ));
-}else{
- Get.to(() => ServiceScreen(
-                                        orders[i].id,
-                                        isFromOrder: true,
-                                        isProduct: true,
-                                      ));
-}
-
-
-
+                              if (index == 0) {
+                                orders[i].status == 0
+                                    ? Get.to(() => ServiceScreen(
+                                          orders[i].id,
+                                          isFromOrder: true,
+                                          isProduct: true,
+                                        ))
+                                    : Get.to(() => ChatPage(
+                                          id: orders[i].id,
+                                          isDisabled: orders[i].status == 3
+                                              ? true
+                                              : false,
+                                        ));
+                              } else {
+                                Get.to(() => ServiceScreen(
+                                      orders[i].id,
+                                      isFromOrder: true,
+                                      isProduct: true,
+                                    ));
+                              }
                             },
                             child: OrderItem(orders[i])),
                       );

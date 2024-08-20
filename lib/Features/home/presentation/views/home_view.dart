@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.primaryColor4,
       floatingActionButton: Consumer(
         builder: (context, ref, widget) {
           final settings = ref.watch(fetchSettingsProvider);
@@ -74,21 +74,6 @@ class _HomeScreenState extends State<HomeScreen> {
               });
         },
       ),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight*1.5),
-
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-
-
-          title: Image.asset(Assets.base.lgo.path,
-
-        height: kToolbarHeight*1.5,
-          ),
-
-
-        ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -96,6 +81,35 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColors.primaryColor3,
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Padding(
+                  padding:
+                      const EdgeInsetsDirectional.symmetric(horizontal: 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      AppBar(
+                        backgroundColor: Colors.transparent,
+                        leadingWidth: 150.w,
+                        leading: Image.asset(
+                          Assets.socialMedia.logo2.path,
+                          height: kToolbarHeight * 1.5,
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      HomeSliderWidget(),
+                      SizedBox(height: 30.h)
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.h),
               Consumer(builder: (context, ref, child) {
                 final fetchData = ref.watch(fetchCategoriesProvider);
                 return fetchData.customWhen(
@@ -112,7 +126,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
                               child: Text(
                                 "Categories".tr,
                                 style: AppFontStyle.black_18
@@ -154,11 +169,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     });
               }),
-              SizedBox(height: 15.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
-                child: HomeSliderWidget(),
-              ),
             ],
           ),
         ),
