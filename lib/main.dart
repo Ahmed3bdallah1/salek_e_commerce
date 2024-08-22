@@ -28,6 +28,7 @@ import 'package:car_rentting/core/utils/api_service.dart';
 import 'package:car_rentting/core/utils/app_fonts.dart';
 import 'package:car_rentting/core/utils/app_translation.dart';
 import 'package:car_rentting/core/utils/colors.dart';
+import 'package:car_rentting/core/utils/localization_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -59,6 +60,7 @@ Future setupLocator() async {
   getIt.registerSingleton<SharedPreferences>(
       await SharedPreferences.getInstance());
   getIt.registerLazySingleton<LocalDataManager>(() => LocalDataManagerImpl());
+  getIt.registerLazySingleton<LocaleService>(() => LocaleService(getIt<LocalDataManager>()));
   getIt.registerLazySingleton<ApiService>(() => ApiService());
 
   getIt.registerLazySingleton<HomeDataSource>(
@@ -90,6 +92,8 @@ Future setupLocator() async {
       privacyPolicyDataSource: getIt<PrivacyPolicyDataSource>()));
   getIt.registerLazySingleton<FetchPolicyUseCase>(
       () => FetchPolicyUseCase(policyRepo: getIt<PrivacyPolicyRepo>()));
+  getIt.registerLazySingleton<FetchWhoAreWeUseCase>(
+      () => FetchWhoAreWeUseCase(policyRepo: getIt<PrivacyPolicyRepo>()));
 
   getIt.registerLazySingleton<ChatsDataSource>(
       () => ChatsDataSourceImpl(getIt<ApiService>()));
@@ -146,7 +150,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             home: const SplashView(),
             translations: Translation(),
-            locale: const Locale("ar"),
+            locale: localeService.handleLocaleInMain,
           );
         });
   }

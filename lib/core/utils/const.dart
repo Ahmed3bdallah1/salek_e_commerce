@@ -16,6 +16,7 @@ const String GET_CATEGORIES = "getCategory";
 const String GET_SERVICES = "getService";
 const String GET_SETTINGS = "getSetting";
 const String GET_TERMS = "getTerms";
+const String GET_WHO_ARE_WE= "getWhoAreWe";
 const String GET_SLIDER = "getSlider";
 const String GET_USER_DATA = "user-profile";
 const String REGISTER = "register";

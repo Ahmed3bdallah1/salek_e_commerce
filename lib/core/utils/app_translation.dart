@@ -7,6 +7,8 @@ class Translation extends Translations {
         'ar': {
           "Salik":"UNI-DYE",
           "Chat with engineer":"التحدث مع المهندس",
+          "Who Are We":"من نحن",
+          "Language":"اللغة",
           "Notifications": "الاشعارات",
           'Delivered': "تم التوصيل",
           'Delete Account': "حذف الحساب",
