@@ -107,15 +107,17 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                         secondaryColor: AppColors.primaryColor2,
                         receivedMessageBodyTextStyle:
                             TextStyle(color: AppColors.white, fontSize: 16.sp),
-                        inputBackgroundColor:
-                            AppColors.primaryColor1.withOpacity(.8),
+                        inputBackgroundColor: widget.isDisabled == true
+                            ? Colors.transparent
+                            : AppColors.primaryColor1.withOpacity(.8),
+                        inputTextColor: widget.isDisabled == true
+                            ? AppColors.primaryColor3
+                            : AppColors.white,
                         inputSurfaceTintColor: AppColors.primaryColor),
                     // showUserAvatars: true,
                     showUserNames: true,
                     user: _user,
-                    inputOptions: InputOptions(
-                      enabled: !widget.isDisabled!,
-                    ),
+                    inputOptions: InputOptions(enabled: !widget.isDisabled!),
                   ),
                 );
               },

@@ -6,6 +6,7 @@ import 'package:car_rentting/Features/auth/domain/use_cases/user_register_use_ca
 import 'package:car_rentting/Features/auth/presentation/manager/current_user_provider.dart';
 import 'package:car_rentting/Features/home/presentation/views/root_view.dart';
 import 'package:car_rentting/Ui/shared_widget/image_or_svg.dart';
+import 'package:car_rentting/core/functions/responsive.dart';
 import 'package:car_rentting/core/utils/colors.dart';
 import 'package:car_rentting/core/utils/local_data_manager.dart';
 import 'package:car_rentting/main.dart';
@@ -20,6 +21,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../Ui/shared_widget/custom_text_field.dart';
+import '../../../../Ui/shared_widget/select_language_dialog.dart';
+import '../../../../core/utils/localization_service.dart';
 import '../../../../gen/assets.gen.dart';
 
 class LoginView extends ConsumerWidget {
@@ -98,6 +102,7 @@ class LoginView extends ConsumerWidget {
               return null;
             },
             theme: LoginTheme(
+              logoWidth: 120,
               switchAuthTextColor: Colors.black,
               buttonTheme: const LoginButtonTheme(
                 backgroundColor: Colors.black,
@@ -176,7 +181,32 @@ class LoginView extends ConsumerWidget {
             ],
             // logo: 'assets/images/logo.png',
           ),
-
+          PositionedDirectional(
+              top: 50.h,
+              end: 10,
+              child: InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return const SelectLanguageDialog();
+                      });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColor.whiteOrGrey,
+                      ),
+                      borderRadius: BorderRadius.circular(6.r)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: Text(
+                    localeService.isArabic ? "العربية" : "English",
+                    style: AppFont.font16W500WhitePoppins,
+                  ),
+                ),
+              )),
           //login as guest
         ],
       ),
