@@ -15,6 +15,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../../../Ui/shared_widget/select_language_dialog.dart';
+
 class SettingsView extends ConsumerWidget {
   const SettingsView({super.key});
 
@@ -41,6 +43,25 @@ class SettingsView extends ConsumerWidget {
                   },
                   icon: Icons.privacy_tip,
                   title: 'Privacy Policy'.tr),
+              const SizedBox(height: Constants.spaceLarge),
+              SettingsItem(
+                  onTap: () {
+                    Get.to(() => const WhoAreWeScreen());
+                  },
+                  icon: Icons.privacy_tip,
+                  title: 'Who Are We'.tr),
+              const SizedBox(height: Constants.spaceLarge),
+              SettingsItem(
+                  onTap: () async {
+                    showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) {
+                          return const SelectLanguageDialog();
+                        });
+                  },
+                  icon: Icons.language,
+                  title: 'Language'.tr),
               const SizedBox(height: Constants.spaceLarge),
               SettingsItem(
                   onTap: () async {

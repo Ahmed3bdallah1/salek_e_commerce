@@ -13,6 +13,7 @@ import 'package:car_rentting/core/utils/app_fonts.dart';
 import 'package:car_rentting/core/utils/colors.dart';
 import 'package:car_rentting/gen/assets.gen.dart';
 import 'package:car_rentting/main.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -134,16 +135,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
                             ),
-                            GridView.builder(
+                            ListView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               itemCount: categories.length,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      childAspectRatio: 1.1,
-                                      mainAxisExtent: 180.h),
+                              // gridDelegate:
+                              //     SliverGridDelegateWithFixedCrossAxisCount(
+                              //         crossAxisCount: 2,
+                              //         childAspectRatio: 1.1,
+                              //         mainAxisExtent: 180.h),
                               itemBuilder: (c, i) {
                                 return Padding(
                                   padding:

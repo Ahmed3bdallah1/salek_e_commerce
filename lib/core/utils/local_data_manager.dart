@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 import 'package:car_rentting/Features/auth/data/models/user_model.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../enums/language.dart';
 
 abstract class LocalDataManager {
   Future<void> saveToken(String token);
@@ -18,6 +21,10 @@ abstract class LocalDataManager {
   UserModel? getUser();
 
   String? getToken();
+
+  Future<void> setLanguage(Language lang);
+
+  Language? get getLanguage;
 }
 
 class LocalDataManagerImpl extends LocalDataManager {
@@ -60,13 +67,24 @@ class LocalDataManagerImpl extends LocalDataManager {
     return box.erase();
   }
 
-  // @override
-  // String? getFCMToken() {
-  //   return box.read('fcmToken');
-  // }
-  //
-  // @override
-  // Future<void> setFCMToken(String? token) {
-  //   return box.write('fcmToken', token);
-  // }
+  @override
+  Future<void> setLanguage(Language lang) async {
+    return box.write("language", lang.locale.languageCode);
+  }
+
+  @override
+  Language? get getLanguage {
+    return Language.values.firstWhereOrNull(
+            (element) => element.locale.languageCode == box.read("language")) ??
+        Language.values.first;
+  }
+// @override
+// String? getFCMToken() {
+//   return box.read('fcmToken');
+// }
+//
+// @override
+// Future<void> setFCMToken(String? token) {
+//   return box.write('fcmToken', token);
+// }
 }

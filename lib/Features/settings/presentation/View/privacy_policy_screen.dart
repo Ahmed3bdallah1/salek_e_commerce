@@ -28,13 +28,60 @@ class PrivacyPolicyScreen extends StatelessWidget {
             refreshable: fetchPolicyProvider.future,
             ref: ref,
             data: (termsData) {
-
               return SingleChildScrollView(
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   child: HtmlWidget(
                     termsData.termsAr ?? "",
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+      bottomSheet: Container(
+        color: AppColors.primaryColor4,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomFilledButton(
+            text: "Ok".tr,
+            textColor: Colors.white,
+            color: AppColors.primaryColorSALEK2,
+            onPressed: () => Get.back(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WhoAreWeScreen extends StatelessWidget {
+  const WhoAreWeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor4,
+      appBar: AppBar(
+        elevation: 4,
+        backgroundColor: AppColors.primaryColor3,
+        title: Text('Who Are We'.tr),
+      ),
+      body: Consumer(
+        builder: (context, ref, _) {
+          final terms = ref.watch(fetchWhoAreWeProvider);
+          return terms.customWhen(
+            refreshable: fetchWhoAreWeProvider.future,
+            ref: ref,
+            data: (aboutData) {
+              return SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  child: HtmlWidget(
+                    aboutData.termsAr ?? "",
                   ),
                 ),
               );
