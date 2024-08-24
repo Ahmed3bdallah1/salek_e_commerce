@@ -43,7 +43,9 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
           ? fetchCategoriesProvider
           : fetchServicesProvider(widget.id!);
     return Scaffold(
+      backgroundColor: AppColors.primaryColor5,
       appBar: AppBar(
+        backgroundColor: AppColors.primaryColor3,
         title: Text(widget.name == null ? "Categories".tr : widget.name!),
         bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.label,
@@ -51,7 +53,6 @@ class _AllCategoriesState extends ConsumerState<AllCategories>
           dividerColor: AppColors.primaryColorSALEK1,
           isScrollable: false,
           tabs: [
-
             Tab(
               child: SizedBox(
                 child: Center(

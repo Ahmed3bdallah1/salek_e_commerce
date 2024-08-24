@@ -34,7 +34,7 @@ class _ChatsScreenState extends ConsumerState<ChatsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor4,
+      backgroundColor: AppColors.primaryColor5,
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor3,
         title: Text(

@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor4,
+      backgroundColor: AppColors.primaryColor5,
       floatingActionButton: Consumer(
         builder: (context, ref, widget) {
           final settings = ref.watch(fetchSettingsProvider);
@@ -60,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     launchUrlString(
                       """https://wa.me/2$phone?${encodeQueryParameters({
-                            'text': ''
+                            'text':
+                                "Uniday Company welcomes its valued customers. How can we help you? Please choose the desired service".tr
                           })}""",
                       mode: LaunchMode.externalApplication,
                     );
@@ -103,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: kToolbarHeight * 1.5,
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       HomeSliderWidget(),
                       SizedBox(height: 30.h)
                     ],
