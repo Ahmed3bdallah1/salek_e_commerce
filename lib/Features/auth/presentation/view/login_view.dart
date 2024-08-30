@@ -102,7 +102,7 @@ class LoginView extends ConsumerWidget {
               return null;
             },
             theme: LoginTheme(
-              logoWidth: 120,
+              logoWidth: 150,
               switchAuthTextColor: Colors.black,
               buttonTheme: const LoginButtonTheme(
                 backgroundColor: Colors.black,
@@ -111,6 +111,7 @@ class LoginView extends ConsumerWidget {
               buttonStyle: GoogleFonts.tajawal(
                 color: Colors.white,
               ),
+              cardTheme: const CardTheme(color: AppColors.primaryColor4),
               inputTheme: const InputDecorationTheme(
                 border: OutlineInputBorder(
                   borderRadius: inputBorder,

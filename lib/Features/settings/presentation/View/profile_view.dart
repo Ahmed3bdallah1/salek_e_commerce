@@ -14,6 +14,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../Ui/shared_widget/select_language_dialog.dart';
 
@@ -107,17 +108,14 @@ class SettingsView extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SocialMediaContent(
-                          ontap: () {},
+                          url: "https://www.facebook.com/Uni.Dye.2030/",
                           image: Assets.socialMedia.facebook.path),
                       SocialMediaContent(
-                          ontap: () {}, image: Assets.socialMedia.gmail.path),
-                      SocialMediaContent(
-                          ontap: () {},
+                          url: "https://www.instagram.com/unidye2030/",
                           image: Assets.socialMedia.instagram.path),
                       SocialMediaContent(
-                          ontap: () {}, image: Assets.socialMedia.twitter.path),
-                      SocialMediaContent(
-                          ontap: () {}, image: Assets.socialMedia.youtube.path),
+                          url: "adelscience2020@gmail.com",
+                          image: Assets.socialMedia.gmail.path),
                     ],
                   )
                 ],

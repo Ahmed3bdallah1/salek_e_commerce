@@ -18,7 +18,7 @@ class HomeCategoryShimmer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "How Can We Help You".tr + "?".tr,
+            "Categories".tr + "?".tr,
             style: AppFontStyle.black_18.copyWith(fontWeight: FontWeight.bold),
           ),
         ),

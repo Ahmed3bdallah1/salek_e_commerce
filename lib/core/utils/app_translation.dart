@@ -9,6 +9,7 @@ class Translation extends Translations {
           "Chat with engineer":"التحدث مع المهندس",
           "Who Are We":"من نحن",
           "Language":"اللغة",
+          "Uniday Company welcomes its valued customers. How can we help you? Please choose the desired service":"شركة يوني داي ترحب بعملائها الكرام كيف يمكن مساعدتكم برجاء أختيار الخدمه المطلوبه",
           "Notifications": "الاشعارات",
           'Delivered': "تم التوصيل",
           'Delete Account': "حذف الحساب",
